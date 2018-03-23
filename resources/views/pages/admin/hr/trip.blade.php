@@ -30,6 +30,44 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="view-ob" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modal-title">Overtime View</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Date</td>
+                            <td id="date">klsjdflkjdlks</td>
+                        </tr>
+                        <tr>
+                            <td>Destination</td>
+                            <td id="destination">kdjlsfkjskdlfj</td>
+                        </tr>
+                        <tr>
+                            <td>Time In/Time Out</td>
+                            <td id="time">kdjlsfkjskdlfj</td>
+                        </tr>
+                        <tr>
+                            <td>Purpose</td>
+                            <td id="purpose">kdjlsfkjskdlfj</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td id="status">fsdfsfdsfsd</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
 @endsection
 
 @section('script')
@@ -81,7 +119,21 @@
 
                 switch (data) {
                     case 'view':
-                        console.log(dataId);
+                        $.ajax({
+                            type: 'ajax',
+                            url: '{{ url("/admin/tripRequest/view") }}/' + dataId,
+                            method: 'get',
+                            dataType: 'json',
+                            success: function(response){
+                                console.log(response);
+                                $('#view-ob').modal('show');
+                                $('#date').text(response['date_from'] + ' => ' + response['date_to']);
+                                $('#destination').text(response['destination_from'] + ' => ' + response['destination_to']);
+                                $('#time').text(response['time_in'] + ' => ' + response['time_out']);
+                                $('#purpose').text(response['purpose']);
+                                $('#status').text(response['status']);
+                            }
+                        });
                         break;
                 }
             });
