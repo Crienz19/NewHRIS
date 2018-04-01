@@ -14,7 +14,7 @@
                     @endforeach
                 </div>
             @endif
-            <input type="text" name="name" class="form-control" placeholder="Username" autofocus>
+            <input type="text" name="username" class="form-control" placeholder="Username" autofocus>
             <span id="error-user" style="color: red;"></span>
             <br>
             <input type="password" name="password" class="form-control" placeholder="Password">
