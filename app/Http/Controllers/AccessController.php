@@ -23,10 +23,13 @@ class AccessController extends Controller
     public function assignAccess(Request $request, $id)
     {
         $user = User::find($id);
-        $user->detachRole($user->roles()->first()->name);
 
-        $user->attachRole($request->input('role'));
-
+        if ($user->hasRole() == true) {
+            $user->detachRole($user->roles()->first()->name);
+            $user->attachRole($request->input('role'));
+        } else {
+            $user->attachRole($request->input('role'));
+        }
         return response()->json(['message'  =>  'Role Assigned!']);
     }
 }
