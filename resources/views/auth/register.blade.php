@@ -133,7 +133,7 @@
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <label for="position">Position: </label>
-                            <select name="position" id="position" class="form-control"></select>
+                            <input type="text" name="position" placeholder="Please Enter your Position">
                             <span id="position-error" style="color: red;"></span>
                         </div>
                     </div>
