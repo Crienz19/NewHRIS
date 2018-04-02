@@ -241,7 +241,7 @@
                     success: function(response){
                         var html = '<option value="">Select Role</option>';
                         $.each(response, function(i, role) {
-                            html +='<option value="'+ role['name'] +'">'+ role['display_name'] +'</option>'
+                            html +='<option value="'+ role['id'] +'">'+ role['display_name'] +'</option>'
                         });
                         $('select[name=role]').html(html);
                     }
