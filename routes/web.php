@@ -219,5 +219,5 @@ Route::get('/helper/sup', 'HelperController@comboSupervisor')->name('helper.supe
 Route::get('/filter/otRequest/{role}/{start}/{end}/{status}/{branch}', 'FilterController@filterOTRequests')->name('filter.ot.requests');
 
 Route::get('/test', function() {
-return getenv('ADMIN_EMAIL');
+
 });
