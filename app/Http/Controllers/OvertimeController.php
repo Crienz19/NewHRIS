@@ -19,7 +19,7 @@ class OvertimeController extends Controller
 {
     public function loadOvertime()
     {
-        $overtimes = Overtime::where('user_id', Auth::user()->id)->get();
+        $overtimes = Overtime::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         return datatables()->of($overtimes)
                 ->addColumn('action', function($overtime){

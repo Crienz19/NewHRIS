@@ -15,7 +15,7 @@ class TripController extends Controller
 {
     public function loadTrip()
     {
-        $trips = Trip::where('user_id', Auth::user()->id)->get();
+        $trips = Trip::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         return datatables()->of($trips)
             ->addColumn('action', function($trip) {
