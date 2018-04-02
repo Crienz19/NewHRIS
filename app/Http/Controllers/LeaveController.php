@@ -87,23 +87,23 @@ class LeaveController extends Controller
                 ]);
 
                 Mail::to($dept_head)->send(new FileLeaveNotification($data));
-                Mail::to(env('ADMIN_EMAIL'))->send(new FileLeaveNotification($data));
-                Mail::to(env('HR_EMAIL'))->send(new FileLeaveNotification($data));
+                Mail::to(getenv('ADMIN_EMAIL'))->send(new FileLeaveNotification($data));
+                Mail::to(getenv('HR_EMAIL'))->send(new FileLeaveNotification($data));
             } elseif (Auth::user()->hasRole('supervisor')) {
                 Log::create([
                     'user_id'   =>  $data['user_id'],
                     'activity'  =>  'Filed' . $data['type']
                 ]);
 
-                Mail::to(env('HR_EMAIL'))->send(new FileLeaveNotification($data));
-                Mail::to(env('ADMIN_EMAIL'))->send(new FileLeaveNotification($data));
+                Mail::to(getenv('HR_EMAIL'))->send(new FileLeaveNotification($data));
+                Mail::to(getenv('ADMIN_EMAIL'))->send(new FileLeaveNotification($data));
             } elseif (Auth::user()->hasRole('hr'))  {
                 Log::create([
                     'user_id'   =>  $data['user_id'],
                     'activity'  =>  'Filed' . $data['type']
                 ]);
 
-                Mail::to(env('ADMIN_EMAIL'))->send(new FileLeaveNotification($data));
+                Mail::to(getenv('ADMIN_EMAIL'))->send(new FileLeaveNotification($data));
             }
 
             return response()->json(['message' => 'Success']);
