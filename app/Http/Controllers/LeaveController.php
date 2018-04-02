@@ -20,7 +20,7 @@ class LeaveController extends Controller
 {
     public function loadLeave()
     {
-        $leaves = Leave::where('user_id', Auth::user()->id)->get();
+        $leaves = Leave::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         return datatables()->of($leaves)
             ->addColumn('action', function($leave) {
