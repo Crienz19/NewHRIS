@@ -24,7 +24,7 @@ class AccessController extends Controller
     {
         $user = User::find($id);
 
-        if ($user->hasRole() == true) {
+        if ($user->hasRole(['admin', 'hr', 'supervisor', 'user']) == true) {
             $user->detachRole($user->roles()->first()->name);
             $user->attachRole($request->input('role'));
         } else {
