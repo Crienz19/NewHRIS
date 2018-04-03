@@ -97,7 +97,6 @@
                     }
                 ],
                 'columns': [
-                    { data: 'id', name: 'id' },
                     { data: 'employee', name: 'employee' },
                     { data: 'position', name: 'position' },
                     { data: 'department', name: 'department' },
