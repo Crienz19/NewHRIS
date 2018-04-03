@@ -49,7 +49,7 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <a href="#" class="thumbnail">
-                                                    <img src="https://placeimg.com/171/180/any">
+                                                    <img id="photo" src="">
                                                 </a>
                                             </div>
                                             <div class="col-md-4">
@@ -197,6 +197,7 @@
                     dataType: 'json',
                     success: function(response) {
                         console.log(response);
+                        $('#photo').html(response['profile_picture']);
                         $('#emp-id').html(response['employee_no']);
                         $('#full-name').html(response['full_name']);
                         $('#birthdate').html(response['birthdate']);
