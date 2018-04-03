@@ -11,7 +11,6 @@
                     <button id="btn-create" class="btn btn-primary btn-sm pull-right" style="margin-bottom: 5px;"><span class="glyphicon glyphicon-plus"></span>&nbsp; Create</button>
                     <table id="ot-table" class="table table-striped table-bordered">
                         <thead>
-                        <th>#</th>
                         <th>Date</th>
                         <th>From</th>
                         <th>To</th>

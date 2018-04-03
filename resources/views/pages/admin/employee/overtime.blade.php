@@ -10,7 +10,6 @@
                 <div class="panel-body">
                     <table id="emp-ot-table" class="table table-striped table-bordered">
                         <thead>
-                            <th>#</th>
                             <th>Employee</th>
                             <th>Position</th>
                             <th>Department</th>
