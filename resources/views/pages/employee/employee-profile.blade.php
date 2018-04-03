@@ -49,7 +49,7 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <a href="#" class="thumbnail">
-                                                    <img width="150px" length="150px" id="photo" src="">
+                                                    <img width="250px" length="250px" id="photo" src="">
                                                 </a>
                                             </div>
                                             <div class="col-md-4">
