@@ -51,10 +51,9 @@ class EmployeeController extends Controller
     {
         $employee = User::join('employees', 'employees.user_id', '=', 'users.id')
                         ->join('credits', 'credits.user_id', '=', 'users.id')
-                        ->join('positions', 'positions.id', '=', 'employees.position_id')
                         ->join('departments', 'departments.id', '=', 'employees.department_id')
                         ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                        ->select(['employees.*', 'credits.VL', 'credits.SL', 'credits.OT', 'credits.OB', 'credits.PTO', 'credits.unused_VL', 'credits.unused_SL', 'credits.total_PTO', 'credits.total_VL', 'credits.total_SL', 'positions.name as position', 'departments.name as department', 'branches.name as branch', 'users.email'])
+                        ->select(['employees.*', 'credits.VL', 'credits.SL', 'credits.OT', 'credits.OB', 'credits.PTO', 'credits.unused_VL', 'credits.unused_SL', 'credits.total_PTO', 'credits.total_VL', 'credits.total_SL', 'position_id as position', 'departments.name as department', 'branches.name as branch', 'users.email'])
                         ->where('employees.user_id', Auth::user()->id)
                         ->first();
 
