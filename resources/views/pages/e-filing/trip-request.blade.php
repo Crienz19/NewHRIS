@@ -121,7 +121,6 @@
                 'ajax': '{{ url("/tripLoad") }}',
                 'dom': 'tp',
                 'columns': [
-                    { data: 'id', name: 'id' },
                     { data: 'date_from', name: 'date_from' },
                     { data: 'date_to', name: 'date_to' },
                     { data: 'time_in', name: 'time_in' },

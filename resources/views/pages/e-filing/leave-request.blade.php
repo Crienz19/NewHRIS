@@ -120,7 +120,6 @@
                 'ajax': '{{ url("/leaveLoad") }}',
                 'dom': 'tp',
                 'columns': [
-                    { data: 'id', name: 'id' },
                     { data: 'type', name: 'type' },
                     { data: 'pay_type', name: 'pay_type' },
                     { data: 'reason', name: 'reason' },

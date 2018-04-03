@@ -84,7 +84,6 @@
                 'ajax': '{{ url("/overtimeLoad") }}',
                 'dom': 'tp',
                 'columns': [
-                    { data: 'id', name: 'id' },
                     { data: 'date', name: 'date' },
                     { data: 'from', name: 'from' },
                     { data: 'to', name: 'to' },
