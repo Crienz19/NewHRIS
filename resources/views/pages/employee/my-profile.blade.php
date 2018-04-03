@@ -15,7 +15,7 @@
                         <div class="col-md-4">
                             <div class="col-xs-6 col-xs-offset-3">
                                 <a href="#" class="thumbnail">
-                                    <img id="photo" src="https://placeimg.com/250/250/any">
+                                    <img id="photo" src="">
                                 </a>
                             </div>
                         </div>
