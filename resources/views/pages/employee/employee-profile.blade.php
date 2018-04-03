@@ -197,7 +197,7 @@
                     dataType: 'json',
                     success: function(response) {
                         console.log(response);
-                        $('#photo').attr('src', response['profile_picture']);
+                        $('#photo').attr('src', '{{ asset('assets/profilePictures') }}/' + response['profile_picture']);
                         $('#emp-id').html(response['employee_no']);
                         $('#full-name').html(response['full_name']);
                         $('#birthdate').html(response['birthdate']);
