@@ -114,7 +114,7 @@
                         </div>
                         <input type="date" class="form-control" id="birthdate-field" name="birthdate-field">
                         <select name="department-field" id="department-field" class="form-control"></select><br>
-                        <select name="position-field" id="position-field" class="form-control"></select>
+                        <input type="text" name="position-field" class="form-control"></input>
                         <select name="branch-field" id="branch-field" class="form-control">
                             <option value="" selected>Select Branch</option>
                             <option value="MANILA">MANILA</option>
