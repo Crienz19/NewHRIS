@@ -17,10 +17,9 @@ class EmployeeController extends Controller
     public function loadEmployee()
     {
         $employees = User::join('employees', 'employees.user_id', '=', 'users.id')
-                         ->join('positions', 'positions.id', '=', 'employees.position_id')
                          ->join('departments', 'departments.id', '=', 'employees.department_id')
                          ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                         ->select(['users.id','employees.full_name','positions.name as position','departments.name as department', 'users.email', 'branches.name as branch'])
+                         ->select(['users.id','employees.full_name','position_id as position','departments.name as department', 'users.email', 'branches.name as branch'])
                          ->get();
 
         return datatables()->of($employees)
