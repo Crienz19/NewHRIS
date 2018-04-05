@@ -234,5 +234,5 @@ Route::get('/test', function() {
         ->whereRoleIs('user')
         ->get();
 
-    return $user;
+    return $leaves;
 });
