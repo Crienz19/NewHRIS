@@ -94,19 +94,19 @@
             </li>
         @endif
         @if(Auth::user()->hasRole('hr'))
-            <li class="sub-menu">
+            <!--<li class="sub-menu">
                 <a class="{{ Route::currentRouteNamed('show.my.profile') ? 'active' : '' }}" href="{{ route('show.my.profile') }}">
                     <i class="fa fa-user"></i>
                     <span>My Profile</span>
                 </a>
-            </li>
+            </li> -->
             <li class="sub-menu">
                 <a class="{{ Route::currentRouteNamed('show.employee.profiles') ? 'active' : '' }}" href="{{ route('show.employee.profiles') }}">
                     <i class="fa fa-users"></i>
                     <span>Employees' Profile</span>
                 </a>
             </li>
-            <li class="sub-menu">
+            <!--<li class="sub-menu">
                 <a class="{{ Route::currentRouteNamed('show.my.leave') ? 'active' : '' }}{{ Route::currentRouteNamed('show.my.overtime') ? 'active' : '' }}{{ Route::currentRouteNamed('show.my.trip') ? 'active' : '' }}" href="#">
                     <i class="fa fa-clock-o"></i>
                     <span>Filing</span>
@@ -116,7 +116,7 @@
                     <li class="{{ Route::currentRouteNamed('show.my.overtime') ? 'active' : '' }}"><a href="{{ route('show.my.overtime') }}">Overtime Request</a></li>
                     <li class="{{ Route::currentRouteNamed('show.my.trip') ? 'active' : '' }}"><a href="{{ route('show.my.trip') }}">Official Business Trip</a></li>
                 </ul>
-            </li>
+            </li> -->
             <li class="sub-menu">
                 <a class="{{ Route::currentRouteNamed('hr.tl.leave.pending') ? 'active' : '' }}{{ Route::currentRouteNamed('hr.tl.leave.approved') ? 'active' : '' }}{{ Route::currentRouteNamed('hr.tl.leave.disapproved') ? 'active' : '' }}" href="#">
                     <i class="fa fa-paper-plane-o"></i>
