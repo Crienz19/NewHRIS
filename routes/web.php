@@ -229,7 +229,7 @@ Route::get('/test', function() {
         ->join('departments', 'departments.id', '=', 'employees.department_id')
         ->join('branches', 'branches.id', '=', 'employees.branch_id')
         ->select(['employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch', 'leaves.*'])
-        ->where('departments.supervisor', $user->user_id)
+        ->where('departments.id', $user->department_id)
         ->where('leaves.recommending_approval', 'Pending')
         ->whereRoleIs('user')
         ->get();
