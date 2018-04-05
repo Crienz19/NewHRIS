@@ -24,12 +24,13 @@ class AccessController extends Controller
     {
         $user = User::find($id);
 
-        if ($user->hasRole(['admin', 'hr', 'supervisor', 'user']) == true) {
-            $user->detachRole($user->roles()->first()->name);
-            $user->attachRoles([$request->input('role')]);
-        } else {
-            $user->attachRoles([$request->input('role')]);
-        }
+        //if ($user->hasRole(['admin', 'hr', 'supervisor', 'user']) == true) {
+        //    $user->detachRole($user->roles()->first()->name);
+        //    $user->attachRoles([$request->input('role')]);
+        //} else {
+
+        //}
+        $user->attachRoles($request->input('role'));
         return response()->json(['message'  =>  'Role Assigned!']);
     }
 }
