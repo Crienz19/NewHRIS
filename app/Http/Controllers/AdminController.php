@@ -19,10 +19,9 @@ class AdminController extends Controller
     {
         $leaves = User::join('employees', 'employees.user_id', '=', 'users.id')
                      ->join('leaves', 'leaves.user_id', '=', 'users.id')
-                     ->join('positions', 'positions.id', '=', 'employees.position_id')
                      ->join('departments', 'departments.id', '=', 'employees.department_id')
                      ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                     ->select(['employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch', 'leaves.*'])
+                     ->select(['employees.full_name as employee', 'position_id as position', 'departments.name as department', 'branches.name as branch', 'leaves.*'])
                      ->where('leaves.final_approval', $status)
                      ->whereRoleIs($role)
                      ->get();
