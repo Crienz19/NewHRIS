@@ -15,10 +15,9 @@ class SuperadminController extends Controller
     {
         $leaves = User::join('employees', 'employees.user_id', '=', 'users.id')
                       ->join('leaves', 'leaves.user_id', '=', 'users.id')
-                      ->join('positions', 'positions.id', '=', 'employees.position_id')
                       ->join('departments', 'departments.id', '=', 'employees.department_id')
                       ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                      ->select(['leaves.*', 'employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch'])
+                      ->select(['leaves.*', 'employees.full_name as employee', 'position_id as position', 'departments.name as department', 'branches.name as branch'])
                       ->get();
 
         return datatables()->of($leaves)
@@ -36,10 +35,9 @@ class SuperadminController extends Controller
     {
         $overtimes = User::join('employees', 'employees.user_id', '=', 'users.id')
                          ->join('overtimes', 'overtimes.user_id', '=', 'users.id')
-                         ->join('positions', 'positions.id', '=', 'employees.position_id')
                          ->join('departments', 'departments.id', '=', 'employees.department_id')
                          ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                         ->select(['overtimes.*', 'employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch'])
+                         ->select(['overtimes.*', 'employees.full_name as employee', 'position_id as position', 'departments.name as department', 'branches.name as branch'])
                          ->get();
 
         return datatables()->of($overtimes)
@@ -57,10 +55,9 @@ class SuperadminController extends Controller
     {
         $trips = User::join('employees', 'employees.user_id', '=', 'users.id')
                      ->join('trips', 'trips.user_id', '=', 'users.id')
-                     ->join('positions', 'positions.id', '=', 'employees.position_id')
                      ->join('departments', 'departments.id', '=', 'employees.department_id')
                      ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                     ->select(['trips.*', 'employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch'])
+                     ->select(['trips.*', 'employees.full_name as employee', 'position_id as position', 'departments.name as department', 'branches.name as branch'])
                      ->get();
 
         return datatables()->of($trips)
@@ -77,10 +74,9 @@ class SuperadminController extends Controller
     {
         $logs = User::join('employees', 'employees.user_id', '=', 'users.id')
                     ->join('logs', 'logs.user_id', '=', 'users.id')
-                    ->join('positions', 'positions.id', '=', 'employees.position_id')
                     ->join('departments', 'departments.id', '=', 'employees.department_id')
                     ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                    ->select(['logs.*', 'employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch'])
+                    ->select(['logs.*', 'employees.full_name as employee', 'positions_id as position', 'departments.name as department', 'branches.name as branch'])
                     ->get();
 
         return datatables()->of($logs)
