@@ -234,5 +234,6 @@ Route::get('/test', function() {
         ->where('leaves.recommending_approval', 'Pending')
         ->whereRoleIs('user')
         ->get();
-    return $leaves;
+
+    return $user;
 });
