@@ -223,5 +223,16 @@ Route::get('/test', function() {
         ->where('users.id', \Illuminate\Support\Facades\Auth::user()->id)
         ->first();
 
-    return $user;
+    $leaves = \App\User::join('employees', 'employees.user_id', '=', 'users.id')
+        ->join('leaves', 'leaves.user_id', '=', 'users.id')
+        ->join('positions', 'positions.id', '=', 'employees.position_id')
+        ->join('departments', 'departments.id', '=', 'employees.department_id')
+        ->join('branches', 'branches.id', '=', 'employees.branch_id')
+        ->select(['employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch', 'leaves.*'])
+        ->where('departments.id', $user->department_id)
+        ->where('employees.branch_id', $user->branch_id)
+        ->where('leaves.recommending_approval', 'Pending')
+        ->whereRoleIs('user')
+        ->get();
+    return $leaves;
 });
