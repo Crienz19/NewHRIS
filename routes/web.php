@@ -219,5 +219,9 @@ Route::get('/helper/sup', 'HelperController@comboSupervisor')->name('helper.supe
 Route::get('/filter/otRequest/{role}/{start}/{end}/{status}/{branch}', 'FilterController@filterOTRequests')->name('filter.ot.requests');
 
 Route::get('/test', function() {
+    $user = \App\User::join('employees', 'employees.user_id', '=', 'users.id')
+        ->where('users.id', \Illuminate\Support\Facades\Auth::user()->id)
+        ->first();
 
+    return $user;
 });

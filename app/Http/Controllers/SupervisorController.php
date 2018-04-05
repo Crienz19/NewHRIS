@@ -45,7 +45,7 @@ class SupervisorController extends Controller
                       ->join('departments', 'departments.id', '=', 'employees.department_id')
                       ->join('branches', 'branches.id', '=', 'employees.branch_id')
                       ->select(['employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch', 'leaves.*'])
-                      ->where('departments.supervisor', $user->id)
+                      ->where('departments.supervisor', $user->user_id)
                       ->where('employees.branch_id', $user->branch_id)
                       ->where('leaves.recommending_approval', $status)
                       ->whereRoleIs('user')
