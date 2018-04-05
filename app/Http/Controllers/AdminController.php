@@ -97,10 +97,9 @@ class AdminController extends Controller
     {
         $overtimes = User::join('employees', 'employees.user_id', '=', 'users.id')
                         ->join('overtimes', 'overtimes.user_id', '=', 'users.id')
-                        ->join('positions', 'positions.id', '=', 'employees.position_id')
                         ->join('departments', 'departments.id', '=', 'employees.department_id')
                         ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                        ->select(['employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch', 'overtimes.*'])
+                        ->select(['employees.full_name as employee', 'position_id as position', 'departments.name as department', 'branches.name as branch', 'overtimes.*'])
                         ->where('overtimes.status', $status)
                         ->whereRoleIs($role)
                         ->get();
@@ -120,10 +119,9 @@ class AdminController extends Controller
     {
         $trips = User::join('employees', 'employees.user_id', '=', 'users.id')
                     ->join('trips', 'trips.user_id', '=', 'users.id')
-                    ->join('positions', 'positions.id', '=', 'employees.position_id')
                     ->join('departments', 'departments.id', '=', 'employees.department_id')
                     ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                    ->select(['trips.*', 'employees.full_name as employee', 'departments.name as department', 'positions.name as position', 'branches.name as branch'])
+                    ->select(['trips.*', 'employees.full_name as employee', 'departments.name as department', 'position_id as position', 'branches.name as branch'])
                     ->where('trips.status', $status)
                     ->whereRoleis($role)
                     ->get();
