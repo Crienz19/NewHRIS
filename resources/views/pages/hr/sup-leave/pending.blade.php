@@ -137,6 +137,7 @@
                             method: 'get',
                             dataType: 'json',
                             success: function(response) {
+                                console.log(response);
                                 $('#type').text(response['type']);
                                 $('#pay').text(response['pay_type']);
                                 $('#reason').text(response['reason']);
