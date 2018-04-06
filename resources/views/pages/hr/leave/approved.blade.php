@@ -89,6 +89,7 @@
                 'processing': true,
                 'serverSide': true,
                 'ajax': '{{ url("/hr/leaveRequests") }}/Approved/user',
+                "iDisplayLength": 500,
                 'dom': '<"pull-right m-b-5"B><"#filter.pull-left"><t><p>',
                 'buttons': [
                     {
