@@ -134,7 +134,7 @@
                     case 'view':
                         $.ajax({
                             type: 'ajax',
-                            url: '{{ url("/hr/leaveRequests/view") }}/' + dataId,
+                            url: '{{ url("/hr/leaveRequest/view") }}/' + dataId,
                             method: 'get',
                             dataType: 'json',
                             success: function(response) {
