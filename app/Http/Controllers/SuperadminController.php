@@ -40,7 +40,7 @@ class SuperadminController extends Controller
                          ->join('departments', 'departments.id', '=', 'employees.department_id')
                          ->join('branches', 'branches.id', '=', 'employees.branch_id')
                          ->select(['overtimes.*', 'employees.full_name as employee', 'position_id as position', 'departments.name as department', 'branches.name as branch'])
-                         ->orderBy('date', 'desc')
+                         ->orderBy('date', 'asc')
                          ->get();
 
         return datatables()->of($overtimes)
