@@ -10,7 +10,6 @@
                 <div class="panel-body">
                     <table id="hr-ot-pending-table" class="table table-striped table-bordered">
                         <thead>
-                        <th>#</th>
                         <th>Employee</th>
                         <th>Position</th>
                         <th>Department</th>
@@ -107,7 +106,6 @@
                     }
                 ],
                 'columns': [
-                    { data: 'id', name: 'id' },
                     { data: 'employee', name: 'employee' },
                     { data: 'position', name: 'position' },
                     { data: 'department', name: 'department' },

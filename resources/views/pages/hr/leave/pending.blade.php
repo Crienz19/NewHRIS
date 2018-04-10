@@ -10,7 +10,6 @@
                 <div class="panel-body">
                     <table id="hr-leave-pending-table" class="table table-striped table-bordered">
                         <thead>
-                            <th>#</th>
                             <th>Employee</th>
                             <th>Position</th>
                             <th>Depatment</th>
@@ -110,7 +109,6 @@
                     }
                 ],
                 'columns': [
-                    { data: 'id', name: 'id'},
                     { data: 'employee', name: 'employee'},
                     { data: 'position', name: 'position'},
                     { data: 'department', name: 'department'},
