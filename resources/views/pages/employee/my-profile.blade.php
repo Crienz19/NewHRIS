@@ -20,26 +20,26 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <label class="col-xs-6">Employee ID:</label><label class="col-xs-6" id="emp-id">20171025</label>
-                            <label class="col-xs-6">Full Name:</label><label class="col-xs-6" id="fullname">Renz D. Mergenio</label>
-                            <label class="col-xs-6">Birthdate:</label><label class="col-xs-6" id="birthdate">January 28, 1996</label>
-                            <label class="col-xs-6">Department:</label><label class="col-xs-6" id="department">IT Department</label>
-                            <label class="col-xs-6">Position:</label><label class="col-xs-6" id="position">IT Specialist</label>
-                            <label class="col-xs-6">Branch:</label><label class="col-xs-6" id="branch">Manila</label>
-                            <label class="col-xs-6">Status:</label><label class="col-xs-6" id="c-status">Single</label>
-                            <label class="col-xs-6">Contact #1:</label><label class="col-xs-6" id="contact-1">09123456789</label>
-                            <label class="col-xs-6">Contact #2:</label><label class="col-xs-6" id="contact-2">09123456789</label>
+                            <label class="col-xs-6">Employee ID:</label><label class="col-xs-6" id="emp-id">###########</label>
+                            <label class="col-xs-6">Full Name:</label><label class="col-xs-6" id="fullname">###########</label>
+                            <label class="col-xs-6">Birthdate:</label><label class="col-xs-6" id="birthdate">###########</label>
+                            <label class="col-xs-6">Department:</label><label class="col-xs-6" id="department">###########</label>
+                            <label class="col-xs-6">Position:</label><label class="col-xs-6" id="position">###########</label>
+                            <label class="col-xs-6">Branch:</label><label class="col-xs-6" id="branch">###########</label>
+                            <label class="col-xs-6">Status:</label><label class="col-xs-6" id="c-status">###########</label>
+                            <label class="col-xs-6">Contact #1:</label><label class="col-xs-6" id="contact-1">###########</label>
+                            <label class="col-xs-6">Contact #2:</label><label class="col-xs-6" id="contact-2">###########</label>
                         </div>
                         <div class="col-md-4">
-                            <label class="col-xs-6">Date Hired:</label><label class="col-xs-6" id="date-hired">20171025</label>
-                            <label class="col-xs-6">Present Address:</label><label class="col-xs-6" id="pre-address">Renz D. Mergenio</label>
-                            <label class="col-xs-6">Permanent Address:</label><label class="col-xs-6" id="per-address">January 28, 1996</label>
-                            <label class="col-xs-6">Skype ID:</label><label class="col-xs-6" id="skype">IT Department</label>
-                            <label class="col-xs-6">E-mail:</label><label class="col-xs-6" id="email">IT Specialist</label>
-                            <label class="col-xs-6">TIN:</label><label class="col-xs-6" id="tin">Manila</label>
-                            <label class="col-xs-6">SSS:</label><label class="col-xs-6" id="sss">Single</label>
-                            <label class="col-xs-6">HDMF:</label><label class="col-xs-6" id="hdmf">09123456789</label>
-                            <label class="col-xs-6">PHIC:</label><label class="col-xs-6" id="phic">09123456789</label>
+                            <label class="col-xs-6">Date Hired:</label><label class="col-xs-6" id="date-hired">###########</label>
+                            <label class="col-xs-6">Present Address:</label><label class="col-xs-6" id="pre-address">###########</label>
+                            <label class="col-xs-6">Permanent Address:</label><label class="col-xs-6" id="per-address">###########</label>
+                            <label class="col-xs-6">Skype ID:</label><label class="col-xs-6" id="skype">###########</label>
+                            <label class="col-xs-6">E-mail:</label><label class="col-xs-6" id="email">###########</label>
+                            <label class="col-xs-6">TIN:</label><label class="col-xs-6" id="tin">###########</label>
+                            <label class="col-xs-6">SSS:</label><label class="col-xs-6" id="sss">###########</label>
+                            <label class="col-xs-6">HDMF:</label><label class="col-xs-6" id="hdmf">###########</label>
+                            <label class="col-xs-6">PHIC:</label><label class="col-xs-6" id="phic">###########</label>
                         </div>
                     </div>
                 </div>

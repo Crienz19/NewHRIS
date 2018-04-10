@@ -53,26 +53,26 @@
                                                 </a>
                                             </div>
                                             <div class="col-md-4">
-                                                <label class="col-xs-6"><small>Employee ID:</small></label><label class="col-xs-6"><small id="emp-id">20172510</small></label>
-                                                <label class="col-xs-6"><small>Fullname:</small></label><label class="col-xs-6"><small id="full-name">Renz D. Mergenio</small></label>
-                                                <label class="col-xs-6"><small>Birthdate:</small></label><label class="col-xs-6"><small id="birthdate">January 28, 1996</small></label>
-                                                <label class="col-xs-6"><small>Position:</small></label><label class="col-xs-6"><small id="position">IT Specialist</small></label>
-                                                <label class="col-xs-6"><small>Department:</small></label><label class="col-xs-6"><small id="department">IT Department</small></label>
-                                                <label class="col-xs-6"><small>Branch:</small></label><label class="col-xs-6"><small id="branch">Manila - Main Office</small></label>
-                                                <label class="col-xs-6"><small>Civil Status:</small></label><label class="col-xs-6"><small id="c-status">Single</small></label>
-                                                <label class="col-xs-6"><small>Contact #1:</small></label><label class="col-xs-6"><small id="contact1">09123456789</small></label>
-                                                <label class="col-xs-6"><small>Contact #2:</small></label><label class="col-xs-6"><small id="contact2">09123456789</small></label>
+                                                <label class="col-xs-6"><small>Employee ID:</small></label><label class="col-xs-6"><small id="emp-id">###########</small></label>
+                                                <label class="col-xs-6"><small>Fullname:</small></label><label class="col-xs-6"><small id="full-name">###########</small></label>
+                                                <label class="col-xs-6"><small>Birthdate:</small></label><label class="col-xs-6"><small id="birthdate">###########</small></label>
+                                                <label class="col-xs-6"><small>Position:</small></label><label class="col-xs-6"><small id="position">###########</small></label>
+                                                <label class="col-xs-6"><small>Department:</small></label><label class="col-xs-6"><small id="department">###########</small></label>
+                                                <label class="col-xs-6"><small>Branch:</small></label><label class="col-xs-6"><small id="branch">###########</small></label>
+                                                <label class="col-xs-6"><small>Civil Status:</small></label><label class="col-xs-6"><small id="c-status">###########</small></label>
+                                                <label class="col-xs-6"><small>Contact #1:</small></label><label class="col-xs-6"><small id="contact1">###########</small></label>
+                                                <label class="col-xs-6"><small>Contact #2:</small></label><label class="col-xs-6"><small id="contact2">###########</small></label>
                                             </div>
                                             <div class="col-md-4">
-                                                <label class="col-xs-6"><small>Date Hired:</small></label><label class="col-xs-6"><small id="date-hired">2017-10-25</small></label>
-                                                <label class="col-xs-6"><small>Present Address:</small></label><label class="col-xs-6"><small id="pr-address">Bagong Silang, Caloocan City</small></label>
-                                                <label class="col-xs-6"><small>Permanent Address:</small></label><label class="col-xs-6"><small id="pe-address">Bagong Silang, Caloocan City</small></label>
-                                                <label class="col-xs-6"><small>Skype ID:</small></label><label class="col-xs-6"><small id="skype">live:rmergenio_1</small></label>
-                                                <label class="col-xs-6"><small>Company E-mail:</small></label><label class="col-xs-6"><small id="email">rmergenio@ziptravel.com.ph</small></label>
-                                                <label class="col-xs-6"><small>TIN:</small></label><label class="col-xs-6"><small id="tin">das</small></label>
-                                                <label class="col-xs-6"><small>SSS:</small></label><label class="col-xs-6"><small id="sss">das</small></label>
-                                                <label class="col-xs-6"><small>HDMF:</small></label><label class="col-xs-6"><small id="hdmf">sad</small></label>
-                                                <label class="col-xs-6"><small>PHIC:</small></label><label class="col-xs-6"><small id="phic">asd</small></label>
+                                                <label class="col-xs-6"><small>Date Hired:</small></label><label class="col-xs-6"><small id="date-hired">###########</small></label>
+                                                <label class="col-xs-6"><small>Present Address:</small></label><label class="col-xs-6"><small id="pr-address">###########</small></label>
+                                                <label class="col-xs-6"><small>Permanent Address:</small></label><label class="col-xs-6"><small id="pe-address">###########</small></label>
+                                                <label class="col-xs-6"><small>Skype ID:</small></label><label class="col-xs-6"><small id="skype">###########</small></label>
+                                                <label class="col-xs-6"><small>Company E-mail:</small></label><label class="col-xs-6"><small id="email">###########</small></label>
+                                                <label class="col-xs-6"><small>TIN:</small></label><label class="col-xs-6"><small id="tin">###########</small></label>
+                                                <label class="col-xs-6"><small>SSS:</small></label><label class="col-xs-6"><small id="sss">###########</small></label>
+                                                <label class="col-xs-6"><small>HDMF:</small></label><label class="col-xs-6"><small id="hdmf">###########</small></label>
+                                                <label class="col-xs-6"><small>PHIC:</small></label><label class="col-xs-6"><small id="phic">###########</small></label>
                                             </div>
                                         </div>
                                     </div>
