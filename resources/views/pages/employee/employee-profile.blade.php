@@ -80,7 +80,11 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="col-xs-12">
-                                            <label>Vacation Leave: <a id="vl-edit">Edit</a></label>
+                                            <label>Vacation Leave:
+                                                @if(Auth::user()->hasRole('superadmin'))
+                                                <a id="vl-edit">Edit</a>
+                                                @endif
+                                            </label>
                                             <div class="progress">
                                                 <div id="VL" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 50%; background-color: #051a40;" >
                                                     <span id="VL-text"></span>
@@ -88,7 +92,11 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
-                                            <label>Sick Leave: <a id="sl-edit">Edit</a></label>
+                                            <label>Sick Leave:
+                                                @if(Auth::user()->hasRole('superadmin'))
+                                                <a id="sl-edit">Edit</a>
+                                                @endif
+                                            </label>
                                             <div class="progress">
                                                 <div id="SL" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 50%; background-color: #092b69;">
                                                     <span id="SL-text"></span>
@@ -96,7 +104,11 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
-                                            <label>Personal Time-Off: <a id="pto-edit">Edit</a></label>
+                                            <label>Personal Time-Off:
+                                                @if(Auth::user()->hasRole('superadmin'))
+                                                <a id="pto-edit">Edit</a>
+                                                @endif
+                                            </label>
                                             <div class="progress">
                                                 <div id="PTO" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 75%; background-color: #051a40">
                                                     <span id="PTO-text"></span>
