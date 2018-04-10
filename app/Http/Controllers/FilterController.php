@@ -14,7 +14,7 @@ class FilterController extends Controller
                          ->join('departments', 'departments.id', '=', 'employees.department_id')
                          ->join('positions', 'positions.id', '=', 'employees.position_id')
                          ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                         ->select(['overtimes.*', 'employees.full_name as employee', 'departments.name as department', 'positions.name as position', 'branches.name as branch'])
+                         ->select(['overtimes.*', 'employees.full_name as employee', 'departments.name as department', 'position_id as position', 'branches.name as branch'])
                          ->where('overtimes.status', $status)
                          ->where('employees.branch_id', $branch)
                          ->whereBetween('overtimes.date', [$start, $end])
