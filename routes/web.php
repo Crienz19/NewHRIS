@@ -163,6 +163,7 @@ Route::get('/superadmin/trip', 'SuperadminController@loadTrips')->name('show.all
 Route::get('/superadmin/trip/single/{id}', 'SuperadminController@loadSingleTrip')->name('show.single.trip');
 Route::get('/superadmin/load/logs', 'SuperadminController@loadActivityLogs')->name('show.activity.logs');
 Route::post('/superadmin/delete/log/{id}', 'SuperadminController@deleteLog')->name('delete.log');
+Route::post('/superadmin/updateCredit/{id}/{type}', 'SuperadminController@updateCredits')->name('update.credits');
 
 Route::get('/admin/leaveRequests/{role}/{status}', 'AdminController@loadLeaveRequests')->name('admin.load.leave');
 Route::get('/admin/leaveRequest/view/{id}', 'AdminController@viewLeaveRequest')->name('admin.view.leave');

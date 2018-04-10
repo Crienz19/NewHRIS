@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Credit;
+use App\Employee;
 use App\Leave;
 use App\Log;
 use App\Overtime;
@@ -90,5 +92,37 @@ class SuperadminController extends Controller
         Log::find($id)->delete();
 
         return response()->json(['message'  =>  'Log Deleted']);
+    }
+
+    public function updateCredits(Request $request, $id, $type)
+    {
+        switch ($type) {
+            case 'VL':
+                Credit::where('user_id', $id)->update([
+                    'VL'        =>  $request->input('current-credit'),
+                    'total_VL'  =>  $request->input('total-credit')
+                ]);
+
+                return response()->json(['message'  =>  'VL Credit Updated']);
+                break;
+
+            case 'SL':
+                Credit::where('user_id', $id)->update([
+                    'SL'        =>  $request->input('current-credit'),
+                    'total_SL'  =>  $request->input('total-credit')
+                ]);
+
+                return response()->json(['message'  =>  'SL Credit Updated']);
+                break;
+
+            case 'PTO':
+                Credit::where('user_id', $id)->update([
+                    'PTO'       =>  $request->input('current-credit'),
+                    'total_PTO' =>  $request->input('total-credit')
+                ]);
+
+                return response()->json(['message'  =>  'PTO Credit Updated']);
+                break;
+        }
     }
 }

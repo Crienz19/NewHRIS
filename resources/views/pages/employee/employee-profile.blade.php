@@ -80,7 +80,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="col-xs-12">
-                                            <label>Vacation Leave: </label>
+                                            <label>Vacation Leave: <a id="vl-edit">Edit</a></label>
                                             <div class="progress">
                                                 <div id="VL" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 50%; background-color: #051a40;" >
                                                     <span id="VL-text"></span>
@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
-                                            <label>Sick Leave: </label>
+                                            <label>Sick Leave: <a id="sl-edit">Edit</a></label>
                                             <div class="progress">
                                                 <div id="SL" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 50%; background-color: #092b69;">
                                                     <span id="SL-text"></span>
@@ -96,7 +96,7 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
-                                            <label>Personal Time-Off: </label>
+                                            <label>Personal Time-Off: <a id="pto-edit">Edit</a></label>
                                             <div class="progress">
                                                 <div id="PTO" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 75%; background-color: #051a40">
                                                     <span id="PTO-text"></span>
@@ -173,6 +173,32 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-success btn-block" id="btn-action">Assign Role</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
+
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="credit-modal" class="modal fade">
+        <div class="modal-dialog modal-sm" style="margin-top: 300px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modal-title">Update Credits</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline" id="credit-form">
+                        <div class="form-group">
+                            <input type="text" name="current-credit" placeholder="Current Credit">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="total-credit" placeholder="Total Credit">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-block" id="btn-credit">Update Credit</button>
                 </div>
             </div>
         </div>
@@ -321,6 +347,43 @@
                     contentType: false,
                     success: function(response) {
                         $('#access-modal').modal('hide');
+                    }
+                });
+            });
+
+            var creditType;
+
+            $('#vl-edit').click(function() {
+                $('#credit-form').attr('action', `{{ url("/superadmin/updateCredit") }}/${id}/VL`);
+                $('#credit-modal').modal('show');
+            });
+
+            $('#sl-edit').click(function() {
+                $('#credit-form').attr('action', `{{ url("/superadmin/updateCredit") }}/${id}/SL`);
+                $('#credit-modal').modal('show');
+            });
+
+            $('#pto-edit').click(function() {
+                $('#credit-form').attr('action' , `{{ url("/superadmin/updateCredit") }}/${id}/PTO`);
+                $('#credit-modal').modal('show');
+            });
+
+            $('#btn-credit').click(function() {
+                var url = $('#credit-form').attr('action');
+                var formData = new FormData($('#credit-form')[0]);
+
+                $.ajax({
+                    type: 'ajax',
+                    url: url,
+                    method: 'post',
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log(response);
+                        employeeDetails(id);
+                        $('#credit-modal').modal('hide');
                     }
                 });
             });
