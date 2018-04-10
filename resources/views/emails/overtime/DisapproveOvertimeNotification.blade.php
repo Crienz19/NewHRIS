@@ -1,12 +1,26 @@
-@component('mail::message')
-# Introduction
+@component('mail::layout')
+    {{-- Header --}}
+    @slot('header')
+        @component('mail::header', ['url' => config('app.url')])
+            HRIS Email Notification
+        @endcomponent
+    @endslot
+    {{-- Body --}}
 
-The body of your message.
+    Filed Overtime Disapproved!
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
+    {{-- Subcopy --}}
+    @isset($subcopy)
+        @slot('subcopy')
+            @component('mail::subcopy')
 
-Thanks,<br>
-{{ config('app.name') }}
+            @endcomponent
+        @endslot
+    @endisset
+    {{-- Footer --}}
+    @slot('footer')
+        @component('mail::footer')
+            © {{ date('Y') }} {{ config('app.name') }}.
+        @endcomponent
+    @endslot
 @endcomponent
