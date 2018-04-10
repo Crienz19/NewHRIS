@@ -12,7 +12,6 @@ class FilterController extends Controller
         $overtimes = User::join('employees', 'employees.user_id', '=', 'users.id')
                          ->join('overtimes', 'overtimes.user_id', '=', 'users.id')
                          ->join('departments', 'departments.id', '=', 'employees.department_id')
-                         ->join('positions', 'positions.id', '=', 'employees.position_id')
                          ->join('branches', 'branches.id', '=', 'employees.branch_id')
                          ->select(['overtimes.*', 'employees.full_name as employee', 'departments.name as department', 'position_id as position', 'branches.name as branch'])
                          ->where('overtimes.status', $status)
