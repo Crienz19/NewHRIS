@@ -194,6 +194,8 @@
                                 $('#to').html(response['to']);
                                 $('#reason').html(response['reason']);
                                 $('#remarks').html(response['remarks']);
+
+                                $('#view-modal').modal('show');
                             }
                         });
                         break;
