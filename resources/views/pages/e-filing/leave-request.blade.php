@@ -184,7 +184,7 @@
                     case 'view':
                         $.ajax({
                             type: 'ajax',
-                            url: `{{ url("/leaveEdit") }}/${id}`,
+                            url: `{{ url("/leaveEdit") }}/${dataId}`,
                             method: 'get',
                             dataType: 'json',
                             success: function(response) {
@@ -200,7 +200,7 @@
                     case 'edit':
                         $.ajax({
                             type: 'ajax',
-                            url: `{{ url("/leaveEdit") }}/${id}`,
+                            url: `{{ url("/leaveEdit") }}/${dataId}`,
                             method: 'get',
                             dataType: 'json',
                             success: function(response) {
