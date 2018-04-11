@@ -121,7 +121,8 @@ class LeaveController extends Controller
             'from'      => $leave->from,
             'to'        => $leave->to,
             'time_from' => date('H:i', strtotime($leave->time_from)),
-            'time_to'   => date('H:i', strtotime($leave->time_to))
+            'time_to'   => date('H:i', strtotime($leave->time_to)),
+            'remarks'   => $leave->remarks
         );
 
         return response()->json($data);
