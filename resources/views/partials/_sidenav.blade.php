@@ -73,10 +73,10 @@
             <li class="sub-menu">
                 <a class="{{ Route::currentRouteNamed('admin.supervisor.leave') ? 'active' : '' }}{{ Route::currentRouteNamed('admin.supervisor.overtime') ? 'active' : '' }}{{ Route::currentRouteNamed('admin.supervisor.trip') ? 'active' : '' }}" href="#">
                     <i class="fa fa-clock-o"></i>
-                    <span>Supervisor</span>
+                    <span>Supervisor</span><span class="badge pull-right m-r-10" id="sup-pending"></span>
                 </a>
                 <ul class="sub">
-                    <li class="{{ Route::currentRouteNamed('admin.supervisor.leave') ? 'active' : '' }}"><a href="{{ route('admin.supervisor.leave') }}">Leave Request</a></li>
+                    <li class="{{ Route::currentRouteNamed('admin.supervisor.leave') ? 'active' : '' }}"><a href="{{ route('admin.supervisor.leave') }}">Leave Request <span class="badge pull-right" style="margin-top: 7px; display: {{ \App\User::join('leaves', 'users.id', '=', 'leaves.user_id')->where('final_approval', 'Pending')->whereRoleIs('supervisor')->count() == 0 ? 'none' : 'block' }}">{{ \App\User::join('leaves', 'users.id', '=', 'leaves.user_id')->where('final_approval', 'Pending')->whereRoleIs('supervisor')->count() > 99 ? '99+' : \App\User::join('leaves', 'users.id', '=', 'leaves.user_id')->where('final_approval', 'Pending')->whereRoleIs('supervisor')->count() }}</span></a></li>
                     <li class="{{ Route::currentRouteNamed('admin.supervisor.overtime') ? 'active' : '' }}"><a href="{{ route('admin.supervisor.overtime') }}">Overtime Request</a></li>
                     <li class="{{ Route::currentRouteNamed('admin.supervisor.trip') ? 'active' : '' }}"><a href="{{ route('admin.supervisor.trip') }}">Official Business Trip</a></li>
                 </ul>
@@ -203,10 +203,10 @@
             <li class="sub-menu">
                 <a class="{{ Route::currentRouteNamed('tl.show.leave.pending') ? 'active' : '' }}{{ Route::currentRouteNamed('tl.show.leave.approved') ? 'active' : '' }}{{ Route::currentRouteNamed('tl.show.leave.disapproved') ? 'active' : '' }}" href="#">
                     <i class="fa fa-clock-o"></i>
-                    <span>Leave Requests</span>
+                    <span>Leave Requests </span><span class="badge pull-right" id="emp-leave-pending"></span>
                 </a>
                 <ul class="sub">
-                    <li class="{{ Route::currentRouteNamed('tl.show.leave.pending') ? 'active' : '' }}"><a href="{{ route('tl.show.leave.pending') }}">Pending</a></li>
+                    <li class="{{ Route::currentRouteNamed('tl.show.leave.pending') ? 'active' : '' }}"><a href="{{ route('tl.show.leave.pending') }}">Pending <span class="badge pull-right"></span></a></li>
                     <li class="{{ Route::currentRouteNamed('tl.show.leave.approved') ? 'active' : '' }}"><a href="{{ route('tl.show.leave.approved') }}">Approved</a></li>
                     <li class="{{ Route::currentRouteNamed('tl.show.leave.disapproved') ? 'active' : '' }}"><a href="{{ route('tl.show.leave.disapproved') }}">Disapproved</a></li>
                 </ul>
@@ -214,7 +214,7 @@
             <li class="sub-menu">
                 <a class="{{ Route::currentRouteNamed('tl.show.ot.pending') ? 'active' : '' }}{{ Route::currentRouteNamed('tl.show.ot.approved') ? 'active' : '' }}{{ Route::currentRouteNamed('tl.show.ot.disapproved') ? 'active' : '' }}" href="#">
                     <i class="fa fa-clock-o"></i>
-                    <span>OT Requests</span>
+                    <span>OT Requests</span><span class="badge pull-right" id="emp-ot-pending"></span>
                 </a>
                 <ul class="sub">
                     <li class="{{ Route::currentRouteNamed('tl.show.ot.pending') ? 'active' : '' }}"><a href="{{ route('tl.show.ot.pending') }}">Pending</a></li>

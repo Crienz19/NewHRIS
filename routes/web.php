@@ -216,24 +216,15 @@ Route::get('/helper/position/{id}', 'HelperController@comboPosition')->name('hel
 Route::get('/helper/branch', 'HelperController@comboBranch')->name('helper.branch');
 Route::get('/helper/role', 'HelperController@comboRole')->name('helper.role');
 Route::get('/helper/sup', 'HelperController@comboSupervisor')->name('helper.supervisor');
+Route::get('/helper/sup/leave/{status}', 'HelperController@SupervisorLeave')->name('helper.supervisor.leave');
+Route::get('/helper/emp/leave/{status}', 'HelperController@EmployeeLeave')->name('helper.employee.leave');
+Route::get('/helper/emp/ot/{status}', 'HelperController@EmployeeOT')->name('helper.employee.ot');
 
 Route::get('/filter/otRequest/{role}/{start}/{end}/{status}/{branch}', 'FilterController@filterOTRequests')->name('filter.ot.requests');
 
 Route::get('/test', function() {
-    $user = \App\User::join('employees', 'employees.user_id', '=', 'users.id')
-        ->where('users.id', \Illuminate\Support\Facades\Auth::user()->id)
-        ->first();
-
-    $leaves = \App\User::join('employees', 'employees.user_id', '=', 'users.id')
-        ->join('leaves', 'leaves.user_id', '=', 'users.id')
-        ->join('positions', 'positions.id', '=', 'employees.position_id')
-        ->join('departments', 'departments.id', '=', 'employees.department_id')
-        ->join('branches', 'branches.id', '=', 'employees.branch_id')
-        ->select(['employees.full_name as employee', 'positions.name as position', 'departments.name as department', 'branches.name as branch', 'leaves.*'])
-        ->where('departments.id', $user->department_id)
-        ->where('leaves.recommending_approval', 'Pending')
-        ->whereRoleIs('user')
-        ->get();
-
-    return $leaves;
+    return \App\User::join('leaves', 'users.id', '=', 'leaves.user_id')
+                    ->where('final_approval', 'Pending')
+                    ->whereRoleIs('supervisor')
+                    ->count();
 });

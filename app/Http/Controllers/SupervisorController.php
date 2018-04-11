@@ -40,14 +40,14 @@ class SupervisorController extends Controller
                     ->first();
 
         $leaves = User::join('employees', 'employees.user_id', '=', 'users.id')
-                      ->join('leaves', 'leaves.user_id', '=', 'users.id')
-                      ->join('departments', 'departments.id', '=', 'employees.department_id')
-                      ->join('branches', 'branches.id', '=', 'employees.branch_id')
-                      ->select(['employees.full_name as employee', 'position_id as position', 'departments.name as department', 'branches.name as branch', 'leaves.*'])
-                      ->where('departments.supervisor', $user->user_id) 
-                      ->where('leaves.recommending_approval', $status)
-                      ->whereRoleIs('user')
-                      ->get();
+                    ->join('leaves', 'leaves.user_id', '=', 'users.id')
+                    ->join('departments', 'departments.id', '=', 'employees.department_id')
+                    ->join('branches', 'branches.id', '=', 'employees.branch_id')
+                    ->select(['employees.full_name as employee', 'position_id as position', 'departments.name as department', 'branches.name as branch', 'leaves.*'])
+                    ->where('departments.supervisor', $user->user_id)
+                    ->where('leaves.recommending_approval', $status)
+                    ->whereRoleIs('user')
+                    ->get();
 
         return datatables()->of($leaves)
             ->addColumn('action', function($leave) {
