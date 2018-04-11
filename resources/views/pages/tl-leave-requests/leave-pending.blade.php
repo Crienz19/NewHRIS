@@ -155,7 +155,7 @@
 
                             $.ajax({
                                 type: 'ajax',
-                                url: '{{ url("/hr/leaveRequests/disapproved") }}/' + dataId,
+                                url: '{{ url("/tl/leaveRequests/disapproved") }}/' + dataId,
                                 method: 'post',
                                 data: formData,
                                 dataType: 'json',
