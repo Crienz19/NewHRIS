@@ -24,7 +24,7 @@ class OvertimeController extends Controller
         return datatables()->of($overtimes)
                 ->addColumn('action', function($overtime){
                     if ($overtime->status != 'Pending') {
-                        return 'Not Applicable';
+                        return '<button class="btn btn-default btn-xs" data="view" data-id="'.$overtime->id.'">View</button>';
                     } else {
                         return '<button class="btn btn-success btn-xs" data="edit" data-id="'.$overtime->id.'"><span class="glyphicon glyphicon-pencil"></span></button>
                                 <button class="btn btn-danger btn-xs" data="remove" data-id="'.$overtime->id.'"><span class="glyphicon glyphicon-trash"></span></button>';
@@ -74,10 +74,11 @@ class OvertimeController extends Controller
         $overtime = Overtime::find($id);
 
         $data = array(
-            'date'  =>  $overtime->date,
-            'from'  =>  date('H:i', strtotime($overtime->from)),
-            'to'    =>  date('H:i', strtotime($overtime->to)),
-            'reason'=>  $overtime->reason
+            'date'      =>  $overtime->date,
+            'from'      =>  date('H:i', strtotime($overtime->from)),
+            'to'        =>  date('H:i', strtotime($overtime->to)),
+            'reason'    =>  $overtime->reason,
+            'remarks'   =>  $overtime->remarks
         );
 
         return response()->json($data);

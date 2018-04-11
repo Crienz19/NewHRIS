@@ -67,6 +67,45 @@
         </div>
     </div>
     <!-- modal -->
+
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="view-modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modal-title">Overtime View</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Date</td>
+                            <td id="date">klsjdflkjdlks</td>
+                        </tr>
+                        <tr>
+                            <td>From</td>
+                            <td id="from">kdjlsfkjskdlfj</td>
+                        </tr>
+                        <tr>
+                            <td>To</td>
+                            <td id="to">kdjlsfkjskdlfj</td>
+                        </tr>
+                        <tr>
+                            <td>Reason</td>
+                            <td id="reason">kdjlsfkjskdlfj</td>
+                        </tr>
+                        <tr>
+                            <td>Remarks</td>
+                            <td id="remarks">kdsfjklsdjf</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
 @endsection
 
 @section('script')
@@ -97,15 +136,32 @@
                 var dataId = $(this).attr('data-id');
 
                 switch (data) {
+                    case 'view':
+                        $.ajax({
+                            type: 'ajax',
+                            url: `{{ url("/overtimeEdit") }}/${dataId}`,
+                            method: 'get',
+                            dataType: 'json',
+                            success: function(response) {
+                                $('#date').html(response['date']);
+                                $('#from').html(response['from']);
+                                $('#to').html(response['to']);
+                                $('#reason').html(response['reason']);
+                                $('#remarks').html(response['remarks']);
+
+                                $('view-modal').modal('show');
+                            }
+                        });
+                        break;
 
                     case 'edit':
                         $.ajax({
                             type: 'ajax',
-                            url: '{{ url("/overtimeEdit") }}/' + dataId,
+                            url: `{{ url("/overtimeEdit") }}/${dataId}`,
                             method: 'get',
                             dataType: 'json',
                             success: function(response) {
-                                $('#ot-form').attr('action', '{{ url("/overtimeUpdate") }}/' + dataId);
+                                $('#ot-form').attr('action', `{{ url("/overtimeUpdate") }}/${dataId}`);
                                 $('#modal-title').text('Update Overtime');
                                 $('#btn-action').text('Update Overtime');
                                 $('input[name=ot-date]').val(response['date']);
@@ -121,7 +177,7 @@
                     case 'remove':
                         $.ajax({
                             type: 'ajax',
-                            url: '{{ url("/overtimeDelete") }}/' + dataId,
+                            url: `{{ url("/overtimeDelete") }}/${dataId}`,
                             method: 'post',
                             dataType: 'json',
                             success: function(response) {
