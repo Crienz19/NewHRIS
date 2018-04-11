@@ -54,6 +54,10 @@
                             <td>Reason</td>
                             <td id="reason">kdjlsfkjskdlfj</td>
                         </tr>
+                        <tr>
+                            <td>Remarks</td>
+                            <td id="remarks">dsjfdkjfdks</td>
+                        </tr>
                         </tbody>
                     </table>
                     <form id="remarks-form">
@@ -117,6 +121,7 @@
                                 $('#from').text(response['from']);
                                 $('#to').text(response['to']);
                                 $('#reason').text(response['reason']);
+                                $('#remarks').text(response['remarks']);
 
                                 $('#view-ot').modal('show');
                             }
