@@ -105,7 +105,7 @@
     <!-- modal -->
 
     <!-- Modal -->
-    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="leave-modal" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="view-modal" class="modal fade" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -181,15 +181,31 @@
                 var dataId = $(this).attr('data-id');
 
                 switch (data) {
+                    case 'view':
+                        $.ajax({
+                            type: 'ajax',
+                            url: `{{ url("/leaveEdit") }}/${id}`,
+                            method: 'get',
+                            dataType: 'json',
+                            success: function(response) {
+                                $('#type').html(response['type']);
+                                $('#pay').html(response['pay_type']);
+                                $('#from').html(response['from']);
+                                $('#to').html(response['to']);
+                                $('#reason').html(response['reason']);
+                                $('#remarks').html(response['remarks']);
+                            }
+                        });
+                        break;
                     case 'edit':
                         $.ajax({
                             type: 'ajax',
-                            url: '{{ url("/leaveEdit") }}/' + dataId,
+                            url: `{{ url("/leaveEdit") }}/${id}`,
                             method: 'get',
                             dataType: 'json',
                             success: function(response) {
                                 console.log(response);
-                                $('#leave-form').attr('action', '{{ url("/leaveUpdate") }}/' + dataId);
+                                $('#leave-form').attr('action', `{{ url("/leaveUpdate") }}/${dataId}`);
                                 $('#modal-title').text('Update Leave');
                                 $('#btn-action').text('Update');
                                 $('select[name=leave-type]').val(response['type']);
@@ -213,7 +229,7 @@
                     case 'remove':
                         $.ajax({
                             type: 'ajax',
-                            url: '{{ url("/leaveDelete") }}/' + dataId,
+                            url: `{{ url("/leaveDelete") }}/${dataId}`,
                             method: 'post',
                             dataType: 'json',
                             success: function(response) {
