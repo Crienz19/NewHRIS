@@ -104,9 +104,11 @@
                 ]
             });
 
+            var id;
             $('#ot-approved-table tbody').on('click', 'td button', function (){
                 var data = $(this).attr('data');
                 var dataId = $(this).attr('data-id');
+                id = dataId;
 
                 switch (data) {
                     case 'view':
@@ -126,25 +128,25 @@
                                 $('#view-ot').modal('show');
                             }
                         });
-
-                        $('#btn-decline').click(function() {
-                            var formData = new FormData($('#remarks-form')[0]);
-                            $.ajax({
-                                type: 'ajax',
-                                url: '{{ url("/tl/otRequests/disapproved") }}/' + dataId,
-                                method: 'post',
-                                data: formData,
-                                dataType: 'json',
-                                processData: false,
-                                contentType: false,
-                                success: function(response) {
-                                    dt.api().ajax.reload();
-                                    $('#view-ot').modal('hide');
-                                }
-                            });
-                        });
                     break;
                 }
+            });
+
+            $('#btn-decline').click(function() {
+                var formData = new FormData($('#remarks-form')[0]);
+                $.ajax({
+                    type: 'ajax',
+                    url: `{{ url("/tl/otRequests/disapproved") }}/${id}`,
+                    method: 'post',
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        dt.api().ajax.reload();
+                        $('#view-ot').modal('hide');
+                    }
+                });
             });
         })
     </script>

@@ -103,6 +103,49 @@
         </div>
     </div>
     <!-- modal -->
+
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="leave-modal" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: white;">&times;</button>
+                    <h4 class="modal-title" id="modal-title">Leave View</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Leave Type</td>
+                            <td id="type">klsjdflkjdlks</td>
+                        </tr>
+                        <tr>
+                            <td>Leave Pay</td>
+                            <td id="pay">klsjdflkjdlks</td>
+                        </tr>
+                        <tr>
+                            <td>Leave From</td>
+                            <td id="from">kdjlsfkjskdlfj</td>
+                        </tr>
+                        <tr>
+                            <td>Leave To</td>
+                            <td id="to">kdjlsfkjskdlfj</td>
+                        </tr>
+                        <tr>
+                            <td>Reason</td>
+                            <td id="reason">kdjlsfkjskdlfj</td>
+                        </tr>
+                        <tr>
+                            <td>Remarks</td>
+                            <td id="remarks">kdjklfjsdklf</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
 @endsection
 
 @section('script')

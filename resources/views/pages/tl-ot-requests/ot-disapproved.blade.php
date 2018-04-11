@@ -103,10 +103,11 @@
                     { data: 'action', name: 'action' }
                 ]
             });
-
+            var id;
             $('#ot-disapproved-table tbody').on('click', 'td button', function (){
                 var data = $(this).attr('data');
                 var dataId = $(this).attr('data-id');
+                id = dataId;
 
                 switch (data) {
                     case 'view':
@@ -125,26 +126,26 @@
                                 $('#view-ot').modal('show');
                             }
                         });
-
-                        $('#btn-approve').click(function() {
-                            var formData = new FormData($('#remarks-form')[0]);
-                            $.ajax({
-                                type: 'ajax',
-                                url: '{{ url("/tl/otRequests/approved") }}/' + dataId,
-                                method: 'post',
-                                data: formData,
-                                dataType: 'json',
-                                processData: false,
-                                contentType: false,
-                                success: function(response) {
-                                    console.log(response);
-                                    dt.api().ajax.reload();
-                                    $('#view-ot').modal('hide');
-                                }
-                            });
-                        });
                     break;
                 }
+            });
+
+            $('#btn-approve').click(function() {
+                var formData = new FormData($('#remarks-form')[0]);
+                $.ajax({
+                    type: 'ajax',
+                    url: `{{ url("/tl/otRequests/approved") }}/${id}`,
+                    method: 'post',
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log(response);
+                        dt.api().ajax.reload();
+                        $('#view-ot').modal('hide');
+                    }
+                });
             });
         })
     </script>

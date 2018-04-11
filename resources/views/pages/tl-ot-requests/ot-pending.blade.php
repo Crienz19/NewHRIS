@@ -131,7 +131,7 @@
                 var formData = new FormData($('#remarks-form')[0]);
                 $.ajax({
                     type: 'ajax',
-                    url: '{{ url("/tl/otRequests/approved") }}/' + id,
+                    url: `{{ url("/tl/otRequests/approved") }}/${id}`,
                     method: 'post',
                     data: formData,
                     dataType: 'json',
@@ -148,7 +148,7 @@
                 var formData = new FormData($('#remarks-form')[0]);
                 $.ajax({
                     type: 'ajax',
-                    url: '{{ url("/tl/otRequests/disapproved") }}/' + id,
+                    url: `{{ url("/tl/otRequests/disapproved") }}/${id}`,
                     method: 'post',
                     data: formData,
                     dataType: 'json',

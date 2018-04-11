@@ -117,9 +117,11 @@
                 ]
             });
 
+            var id;
             $('#tl-leave-disapproved-table tbody').on('click', 'td button', function (){
                 var data = $(this).attr('data');
                 var dataId = $(this).attr('data-id');
+                id = dataId;
 
                 switch (data) {
                     case 'view':
@@ -138,46 +140,46 @@
                                 $('#view-leave').modal('show');
                             }
                         });
-
-                        $('#btn-approve').click(function() {
-                            var formData = new FormData($('#remarks-form')[0]);
-
-                            $.ajax({
-                                type: 'ajax',
-                                url: '{{ url("/tl/leaveRequests/approved") }}/' + dataId,
-                                method: 'post',
-                                data: formData,
-                                dataType: 'json',
-                                processData: false,
-                                contentType: false,
-                                success: function(response) {
-                                    console.log(response);
-                                    dt.api().ajax.reload();
-                                    $('#view-leave').modal('hide');
-                                }
-                            });
-                        });
-
-                        $('#btn-decline').click(function() {
-                            var formData = new FormData($('#remarks-form')[0]);
-
-                            $.ajax({
-                                type: 'ajax',
-                                url: '{{ url("/tl/leaveRequests/disapproved") }}/' + dataId,
-                                method: 'post',
-                                data: formData,
-                                dataType: 'json',
-                                processData: false,
-                                contentType: false,
-                                success: function(response) {
-                                    console.log(response);
-                                    dt.api().ajax.reload();
-                                    $('#view-leave').modal('hide');
-                                }
-                            });
-                        });
                         break;
                 }
+            });
+
+            $('#btn-approve').click(function() {
+                var formData = new FormData($('#remarks-form')[0]);
+
+                $.ajax({
+                    type: 'ajax',
+                    url: `{{ url("/tl/leaveRequests/approved") }}/${id}`,
+                    method: 'post',
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log(response);
+                        dt.api().ajax.reload();
+                        $('#view-leave').modal('hide');
+                    }
+                });
+            });
+
+            $('#btn-decline').click(function() {
+                var formData = new FormData($('#remarks-form')[0]);
+
+                $.ajax({
+                    type: 'ajax',
+                    url: `{{ url("/tl/leaveRequests/disapproved") }}/${id}`,
+                    method: 'post',
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log(response);
+                        dt.api().ajax.reload();
+                        $('#view-leave').modal('hide');
+                    }
+                });
             });
         })
     </script>

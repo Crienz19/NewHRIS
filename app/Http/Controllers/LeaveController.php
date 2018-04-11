@@ -25,7 +25,7 @@ class LeaveController extends Controller
         return datatables()->of($leaves)
             ->addColumn('action', function($leave) {
                 if ($leave->final_approval != 'Pending') {
-                    return 'Not Applicable';
+                    return '<button class="btn btn-default btn-xs" data="view" data-id"'.$leave->id.'">VIEW</button>';
                 } else {
                     return '<button class="btn btn-success btn-xs" data="edit" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-pencil"></span></button>
                         <button class="btn btn-danger btn-xs" data="remove" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-trash"></span></button>';
