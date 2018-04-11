@@ -63,6 +63,10 @@
                             <td>Reason</td>
                             <td id="reason">kdjlsfkjskdlfj</td>
                         </tr>
+                        <tr>
+                            <td>Remarks</td>
+                            <td id="remarks">kdjklfjsdklf</td>
+                        </tr>
                         </tbody>
                     </table>
                     <form id="remarks-form">
@@ -130,6 +134,8 @@
                                 $('#reason').text(response['reason']);
                                 $('#from').text(response['from']);
                                 $('#to').text(response['to']);
+                                $('#remarks').text(response['remarks']);
+
                                 $('#view-leave').modal('show');
                             }
                         });
