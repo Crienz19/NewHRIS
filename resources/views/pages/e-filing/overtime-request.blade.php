@@ -149,7 +149,7 @@
                                 $('#reason').html(response['reason']);
                                 $('#remarks').html(response['remarks']);
 
-                                $('view-modal').modal('show');
+                                $('#view-modal').modal('show');
                             }
                         });
                         break;
