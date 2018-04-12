@@ -29,6 +29,16 @@ class OvertimeController extends Controller
                         return '<button class="btn btn-success btn-xs" data="edit" data-id="'.$overtime->id.'"><span class="glyphicon glyphicon-pencil"></span></button>
                                 <button class="btn btn-danger btn-xs" data="remove" data-id="'.$overtime->id.'"><span class="glyphicon glyphicon-trash"></span></button>';
                     }
+                })->setRowClass(function($overtime){
+                    switch ($overtime->status) {
+                        case 'Approved':
+                            return 'alert alert-success';
+                            break;
+
+                        case 'Disapproved':
+                            return 'alert alert-danger';
+                            break;
+                    }
                 })->toJson();
     }
 

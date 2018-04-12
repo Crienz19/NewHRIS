@@ -24,11 +24,21 @@ class LeaveController extends Controller
 
         return datatables()->of($leaves)
             ->addColumn('action', function($leave) {
-                if ($leave->final_approval != 'Pending') {
+                if ($leave->recommending_approval != 'Pending') {
                     return '<button class="btn btn-default btn-xs" data="view" data-id="'.$leave->id.'">VIEW</button>';
                 } else {
                     return '<button class="btn btn-success btn-xs" data="edit" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-pencil"></span></button>
                         <button class="btn btn-danger btn-xs" data="remove" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-trash"></span></button>';
+                }
+            })->setRowClass(function($leave) {
+                switch ($leave->recommending_approval) {
+                    case 'Approved':
+                        return 'alert alert-success';
+                        break;
+
+                    case 'Disapproved':
+                        return 'alert alert-danger';
+                        break;
                 }
             })->toJson();
     }
