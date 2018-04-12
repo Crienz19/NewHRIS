@@ -32,7 +32,7 @@ class AdminController extends Controller
         return datatables()->of($leaves)
             ->addColumn('action', function($leave) {
                 return '<button class="btn btn-default btn-xs" data="view" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-eye-open"></span></button>
-                        <button class="btn btn-succes btn-xs" data="send" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-plane"></span></button>';
+                        <button class="btn btn-success btn-xs" data="send" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-send"></span></button>';
             })->toJson();
     }
 
