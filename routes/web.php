@@ -169,6 +169,7 @@ Route::get('/admin/leaveRequests/{role}/{status}', 'AdminController@loadLeaveReq
 Route::get('/admin/leaveRequest/view/{id}', 'AdminController@viewLeaveRequest')->name('admin.view.leave');
 Route::post('/admin/leaveRequest/approved/{id}', 'AdminController@leaveRequestApproved')->name('admin.leave.approved');
 Route::post('/admin/leaveRequest/disapproved/{id}', 'AdminController@leaveRequestDisapproved')->name('admin.leave.disapproved');
+Route::post('/admin/leave/comment/send/{id}', 'AdminController@sendLeaveComment')->name('admin.leave.comment.send');
 
 Route::get('/admin/otRequests/{role}/{status}', 'AdminController@loadOvertimeRequests')->name('admin.load.overtime');
 Route::get('/admin/otRequest/view/{id}', 'AdminController@viewOvertimeRequest')->name('admin.view.overtime');

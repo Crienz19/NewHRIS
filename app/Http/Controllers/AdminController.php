@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Credit;
+use App\Employee;
 use App\Leave;
 use App\Mail\ApproveLeaveNotification;
 use App\Mail\DisapproveLeaveNotification;
+use App\Mail\LeaveComment;
 use App\Overtime;
 use App\Trip;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
@@ -28,7 +31,8 @@ class AdminController extends Controller
 
         return datatables()->of($leaves)
             ->addColumn('action', function($leave) {
-                return '<button class="btn btn-default btn-xs" data="view" data-id="'.$leave->id.'">VIEW</button>';
+                return '<button class="btn btn-default btn-xs" data="view" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-eye-open"></span></button>
+                        <button class="btn btn-succes btn-xs" data="send" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-plane"></span></button>';
             })->toJson();
     }
 
@@ -135,5 +139,21 @@ class AdminController extends Controller
     public function viewTripRequest($id)
     {
         return response()->json(Trip::find($id));
+    }
+
+    public function sendLeaveComment(Request $request, $id)
+    {
+        $leave = Leave::find($id);
+
+        $data = [
+            'from'      =>  $leave->from,
+            'to'        =>  $leave->to,
+            'reason'    =>  $leave->reason,
+            'comment'   =>  $request->input('comment-text')
+        ];
+
+        Mail::to(User::where('id', $leave->user_id)->first()->email)->send(new LeaveComment($data));
+
+        return response()->json(['message' => 'Comment Sent']);
     }
 }
