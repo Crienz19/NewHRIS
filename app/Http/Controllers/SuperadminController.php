@@ -80,6 +80,7 @@ class SuperadminController extends Controller
                     ->join('departments', 'departments.id', '=', 'employees.department_id')
                     ->join('branches', 'branches.id', '=', 'employees.branch_id')
                     ->select(['logs.*', 'employees.full_name as employee', 'position_id as position', 'departments.name as department', 'branches.name as branch'])
+                    ->orderBy('created_at', 'desc')
                     ->get();
 
         return datatables()->of($logs)

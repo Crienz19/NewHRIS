@@ -16,6 +16,7 @@
                             <th>Department</th>
                             <th>Branch</th>
                             <th>Activity</th>
+                            <th>Created At</th>
                             <th>Action</th>
                         </thead>
                     </table>
@@ -44,6 +45,7 @@
                     { data: 'department', name: 'department' },
                     { data: 'branch', name: 'branch' },
                     { data: 'activity', name: 'activity' },
+                    { data: 'created_at', name: 'created_at' },
                     { data: 'action', name: 'action' },
                 ]
             });
