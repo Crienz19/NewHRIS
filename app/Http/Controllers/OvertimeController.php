@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Credit;
 use App\Department;
 use App\Employee;
 use App\Log;
@@ -71,6 +72,13 @@ class OvertimeController extends Controller
         Mail::to($dept_head)->send(new FileOvertimeNotification($data));
 
         Overtime::create($data);
+
+        $credit = Credit::where('user_id', Auth::user()->id)->first();
+
+        Credit::where('user_id', Auth::user()->id)->update([
+            'OT'    =>  $credit->OT + 1
+        ]);
+
         Log::create([
             'user_id'   =>  $data['user_id'],
             'activity'  =>  'File Overtime'
