@@ -11,16 +11,16 @@
     @isset($subcopy)
         @slot('subcopy')
             @component('mail::subcopy')
-                From: {{ $data->from }}
-                To:   {{ $data->to }}
+                From: {{ $data['from'] }}
+                To:   {{ $data['to'] }}
 
                 Reason:
-                    {{ $data->reason }}
+                    {{ $data['reason'] }}
 
                 ----------------------------------------------------------------
 
                 Comment:
-                    {{ $data->comment }}
+                    {{ $data['comment'] }}
 
             @endcomponent
         @endslot
