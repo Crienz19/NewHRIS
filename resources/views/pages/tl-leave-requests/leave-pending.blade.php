@@ -78,6 +78,30 @@
         </div>
     </div>
     <!-- modal -->
+
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="send-modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Send Comment</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="send-form">
+                        <div class="form-group">
+                            <label for="comment-text">Comment</label>
+                            <textarea name="comment-text" id="comment-text" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-send" class="btn btn-primary btn-sm btn-block">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
 @endsection
 
 @section('script')
@@ -133,6 +157,12 @@
                             }
                         });
                     break;
+
+                    case 'send':
+                        $('#send-form').attr('action', `{{ url("/tl/leave/comment/send") }}/${id}`);
+                        $('textarea[name=comment-text]').val('');
+                        $('#send-modal').modal('show');
+                    break;
                 }
             });
 
@@ -173,6 +203,24 @@
                     }
                 });
             });
+
+            $('#btn-send').click(function() {
+                var formData = new FormData($('#send-form')[0]);
+                var url = $('#send-form').attr('action');
+
+                $.ajax({
+                    type: 'ajax',
+                    url: url,
+                    method: 'post',
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log(response);
+                    }
+                });
+            })
         })
     </script>
 @endsection

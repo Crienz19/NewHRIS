@@ -9,6 +9,7 @@ use App\Log;
 use App\Mail\ApproveOvertimeNotification;
 use App\Mail\DisapproveLeaveNotification;
 use App\Mail\DisapproveOvertimeNotification;
+use App\Mail\LeaveComment;
 use App\Mail\LeaveRecommendationNotification;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -51,7 +52,8 @@ class SupervisorController extends Controller
 
         return datatables()->of($leaves)
             ->addColumn('action', function($leave) {
-                return '<button class="btn btn-default btn-xs" data="view" data-id="'.$leave->id.'">View</button>';
+                return '<button class="btn btn-default btn-xs" data="view" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-eye-open"></span></button>
+                        <button class="btn btn-success btn-xs" data="send" data-id="'.$leave->id.'"><span class="glyphicon glyphicon-send"></span></button>';
             })->toJson();
     }
 
@@ -179,4 +181,19 @@ class SupervisorController extends Controller
         return response()->json(['message' => 'OT Disapproved']);
     }
     #Leave
+    public function sendLeaveComment(Request $request, $id)
+    {
+        $leave = Leave::find($id);
+
+        $data = [
+            'from'      =>  $leave->from,
+            'to'        =>  $leave->to,
+            'reason'    =>  $leave->reason,
+            'comment'   =>  $request->input('comment-text')
+        ];
+
+        Mail::to(User::where('id', $leave->user_id)->first()->email)->send(new LeaveComment($data));
+
+        return response()->json(['message' => 'Comment Sent']);
+    }
 }
