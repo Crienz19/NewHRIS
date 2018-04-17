@@ -6,21 +6,20 @@
         @endcomponent
     @endslot
     {{-- Body --}}
+        From: {{ $data['from'] }}
+        To:   {{ $data['to'] }}
 
+        Reason:
+        {{ $data['reason'] }}
+
+        ----------------------------------------------------------------
+
+        Comment:
+        {{ $data['comment'] }}
     {{-- Subcopy --}}
     @isset($subcopy)
         @slot('subcopy')
             @component('mail::subcopy')
-                From: {{ $data['from'] }}
-                To:   {{ $data['to'] }}
-
-                Reason:
-                    {{ $data['reason'] }}
-
-                ----------------------------------------------------------------
-
-                Comment:
-                    {{ $data['comment'] }}
 
             @endcomponent
         @endslot
