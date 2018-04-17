@@ -29,6 +29,8 @@ class LeaveComment extends Mailable
      */
     public function build()
     {
-        return $this->subject('Comment')->markdown('emails.comment.leave-comment')->with('data', $this->content);
+        return $this->subject('Comment')
+            ->markdown('emails.comment.leave-comment')
+            ->with('data', $this->content);
     }
 }
