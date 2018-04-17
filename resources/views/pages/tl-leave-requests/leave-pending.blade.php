@@ -218,6 +218,7 @@
                     contentType: false,
                     success: function(response) {
                         console.log(response);
+                        $('#send-modal').modal('hide');
                     }
                 });
             })
