@@ -16,7 +16,7 @@ class LeaveComment extends Mailable
      *
      * @return void
      */
-    private $content;
+    public $content;
     public function __construct($data)
     {
         $this->content = $data;

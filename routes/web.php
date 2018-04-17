@@ -183,7 +183,7 @@ Route::get('/tl/leaveRequests/{status}', 'SupervisorController@loadLeaveRequests
 Route::get('/tl/leaveRequests/view/{id}', 'SupervisorController@viewLeaveRequests')->name('tl.leave.requests.view');
 Route::post('/tl/leaveRequests/approved/{id}', 'SupervisorController@LeaveRequestApproved')->name('tl.leave.requests.approved');
 Route::post('/tl/leaveRequests/disapproved/{id}', 'SupervisorController@LeaveRequestDisapproved')->name('tl.leave.requests.disapproved');
-Route::post('/tl/leave/comment/send/{id}', 'SupervisorController@sendLeaveComment')->name('tl.leave.comment.send');
+Route::get('/tl/leave/comment/send/{id}', 'SupervisorController@sendLeaveComment')->name('tl.leave.comment.send');
 
 Route::get('/tl/otRequests/{status}', 'SupervisorController@loadOTRequests')->name('tl.ot.requests.load');
 Route::get('/tl/otRequests/view/{id}', 'SupervisorController@viewOTRequests')->name('tl.ot.requests.view');
