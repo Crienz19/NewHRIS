@@ -86,11 +86,9 @@ class EmployeeController extends Controller
 
     public function resetPassword($id)
     {
-        $data = [
+        User::find($id)->update([
             'password'  =>  Hash::make('z1ptr4v3l')
-        ];
-
-        User::find($id)->update($data);
+        ]);
 
         return response()->json(['message'  =>  'Password Resetted']);
     }

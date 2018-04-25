@@ -331,11 +331,11 @@
                     case 'reset':
                         $.ajax({
                             type: 'ajax',
-                            url: '{{ url("/reset/password") }}/' + dataId,
+                            url: `{{ url("/reset/password") }}/${dataId}`,
                             method: 'post',
                             dataType: 'json',
                             success: function(response) {
-                                alert(response)
+                                alert(response['message'])
                             }
                         });
                         break;
