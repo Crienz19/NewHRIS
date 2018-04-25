@@ -225,8 +225,5 @@ Route::get('/helper/emp/ot/{status}', 'HelperController@EmployeeOT')->name('help
 Route::get('/filter/otRequest/{role}/{start}/{end}/{status}/{branch}', 'FilterController@filterOTRequests')->name('filter.ot.requests');
 
 Route::get('/test', function() {
-    return \App\User::join('leaves', 'users.id', '=', 'leaves.user_id')
-                    ->where('final_approval', 'Pending')
-                    ->whereRoleIs('supervisor')
-                    ->count();
+    return \Illuminate\Support\Facades\Hash::make('z1ptr4v3l');
 });
