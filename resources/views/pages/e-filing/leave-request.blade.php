@@ -156,25 +156,25 @@
             }
         });
         $(document).ready(function() {
-            var dt = $('#leave-table').dataTable({
-                'processing': true,
-                'serverSide': true,
-                'ajax': '{{ url("/leaveLoad") }}',
-                'dom': 'tp',
-                'columns': [
-                    { data: 'type', name: 'type' },
-                    { data: 'pay_type', name: 'pay_type' },
-                    { data: 'reason', name: 'reason' },
-                    { data: 'from', name: 'from' },
-                    { data: 'to', name: 'to' },
-                    { data: 'time_from', name: 'time_from' },
-                    { data: 'time_to', name: 'time_to' },
-                    { data: 'recommending_approval', name: 'recommending_approval' },
-                    { data: 'final_approval', name: 'final_approval' },
-                    { data: 'created_at', name: 'created_at' },
-                    { data: 'action', name: 'action' }
-                ]
-            });
+                    var dt = $('#leave-table').dataTable({
+                        'processing': true,
+                        'serverSide': true,
+                        'ajax': '{{ url("/leaveLoad") }}',
+                        'dom': 'tp',
+                        'columns': [
+                            { data: 'type', name: 'type' },
+                            { data: 'pay_type', name: 'pay_type' },
+                            { data: 'reason', name: 'reason' },
+                            { data: 'from', name: 'from' },
+                            { data: 'to', name: 'to' },
+                            { data: 'time_from', name: 'time_from' },
+                            { data: 'time_to', name: 'time_to' },
+                            { data: 'recommending_approval', name: 'recommending_approval' },
+                            { data: 'final_approval', name: 'final_approval' },
+                            { data: 'created_at', name: 'created_at' },
+                            { data: 'action', name: 'action' }
+                        ]
+                    });
 
             $('#leave-table tbody').on('click', 'td button', function (){
                 var data = $(this).attr('data');

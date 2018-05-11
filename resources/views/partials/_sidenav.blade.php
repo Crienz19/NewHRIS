@@ -150,6 +150,16 @@
                 </ul>
             </li>
             <li class="sub-menu">
+                <a href="#" class="{{ Route::currentRouteNamed('hr.tl.notice.pending') ? 'active' : '' }}{{ Route::currentRouteNamed('hr.tl.notice.acknowledged') ? 'active' : '' }}">
+                    <i class="fa fa-exclamation-circle"></i>
+                    <span>Supervisor Notice Slip</span>
+                </a>
+                <ul class="sub">
+                    <li class="{{ Route::currentRouteNamed('hr.tl.notice.pending') ? 'active' : '' }}"><a href="{{ route('hr.tl.notice.pending') }}">Pending</a></li>
+                    <li class="{{ Route::currentRouteNamed('hr.tl.notice.acknowledged') ? 'active' : '' }}"><a href="{{ route('hr.tl.notice.acknowledged') }}">Acknowledged</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
                 <a class="{{ Route::currentRouteNamed('hr.show.leave.pending') ? 'active' : '' }}{{ Route::currentRouteNamed('hr.show.leave.approved') ? 'active' : '' }}{{ Route::currentRouteNamed('hr.show.leave.disapproved') ? 'active' : '' }}" href="#">
                     <i class="fa fa-paper-plane-o"></i>
                     <span>Employee Leave Requests</span>
@@ -179,6 +189,16 @@
                 <ul class="sub">
                     <li class="{{ Route::currentRouteNamed('hr.show.trip.pending') ? 'active' : '' }}"><a href="{{ route('hr.show.trip.pending') }}">Pending</a></li>
                     <li class="{{ Route::currentRouteNamed('hr.show.trip.acknowledged') ? 'active' : '' }}"><a href="{{ route('hr.show.trip.acknowledged') }}">Acknowledged</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="#" class="{{ Route::currentRouteNamed('hr.show.notice.pending') ? 'active' : '' }}{{ Route::currentRouteNamed('hr.show.notice.acknowledged') ? 'active' : '' }}">
+                    <i class="fa fa-exclamation-circle"></i>
+                    <span>Employee Notice Slip</span>
+                </a>
+                <ul class="sub">
+                    <li class="{{ Route::currentRouteNamed('hr.show.notice.pending') ? 'active' : '' }}"><a href="{{ route('hr.show.notice.pending') }}">Pending</a></li>
+                    <li class="{{ Route::currentRouteNamed('hr.show.notice.acknowledged') ? 'active' : '' }}"><a href="{{ route('hr.show.notice.acknowledged') }}">Acknowledged</a></li>
                 </ul>
             </li>
         @endif
@@ -252,6 +272,7 @@
                     <li class="{{ Route::currentRouteNamed('show.my.leave') ? 'active' : '' }}"><a href="{{ route('show.my.leave') }}">Leave Request</a></li>
                     <li class="{{ Route::currentRouteNamed('show.my.overtime') ? 'active' : '' }}"><a href="{{ route('show.my.overtime') }}">Overtime Request</a></li>
                     <li class="{{ Route::currentRouteNamed('show.my.trip') ? 'active' : '' }}"><a href="{{ route('show.my.trip') }}">Official Business Trip</a></li>
+                    <li class="{{ Route::currentRouteNamed('show.my.notice') ? 'active' : '' }}"><a href="{{ route('show.my.notice') }}">Notice Slip</a></li>
                 </ul>
             </li>
 

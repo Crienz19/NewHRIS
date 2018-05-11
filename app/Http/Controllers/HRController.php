@@ -11,6 +11,7 @@ use App\Mail\ApproveOvertimeNotification;
 use App\Mail\ApproveTripNotification;
 use App\Mail\DisapproveLeaveNotification;
 use App\Mail\DisapproveOvertimeNotification;
+use App\Notice;
 use App\Overtime;
 use App\Trip;
 use Illuminate\Http\Request;
@@ -220,5 +221,39 @@ class HRController extends Controller
         ]);
 
         return response()->json(['message'  => 'Success']);
+    }
+
+    #Notice Slip
+    public function loadNoticeSlipRequests($status, $role)
+    {
+        $notices = User::join('employees', 'employees.user_id', '=', 'users.id')
+                       ->join('notices', 'notices.user_id', '=', 'users.id')
+                       ->join('departments', 'departments.id', '=', 'employees.department_id')
+                       ->join('branches', 'branches.id', '=', 'employees.branch_id')
+                       ->select(['notices.*', 'employees.full_name as employee', 'departments.name as department', 'position_id as position', 'branches.name as branch'])
+                       ->where('status', $status)
+                       ->whereRoleIs($role)
+                       ->get();
+
+        return datatables()->of($notices)
+            ->addColumn('action', function($notice) {
+                return '<button class="btn btn-default btn-xs" data="view" data-id="'.$notice->id.'">View</button>';
+            })->toJson();
+    }
+
+    public function viewNoticeSlipRequest($id)
+    {
+        $notice = Notice::find($id);
+
+        return response()->json($notice);
+    }
+
+    public function noticeSlipAcknowledged($id)
+    {
+        Notice::find($id)->update([
+            'status'    =>  'Acknowledged'
+        ]);
+
+        return response()->json(['message'  =>  'Notice Slip Acknowledged!']);
     }
 }

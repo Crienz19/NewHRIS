@@ -23,7 +23,7 @@ Route::prefix('/my')->group(function() {
     Route::view('/filing/leave', 'pages.e-filing.leave-request')->name('show.my.leave');
     Route::view('/filing/overtime', 'pages.e-filing.overtime-request')->name('show.my.overtime');
     Route::view('/filing/trip', 'pages.e-filing.trip-request')->name('show.my.trip');
-
+    Route::view('/filing/notice', 'pages.e-filing.notice-slip')->name('show.my.notice');
 
 });
 
@@ -82,6 +82,9 @@ Route::prefix('/hr')->group(function() {
     Route::view('/tl/ob/pending', 'pages.hr.sup-trip.pending')->name('hr.tl.trip.pending');
     Route::view('/tl/ob/acknowledged', 'pages.hr.sup-trip.acknowledged')->name('hr.tl.trip.acknowledged');
 
+    Route::view('/tl/notice/pending', 'pages.hr.sup-notice.pending')->name('hr.tl.notice.pending');
+    Route::view('/tl/notice/acknowledged', 'pages.hr.sup-notice.acknowledged')->name('hr.tl.notice.acknowledged');
+
     Route::view('/leave/pending', 'pages.hr.leave.pending')->name('hr.show.leave.pending');
     Route::view('/leave/approved', 'pages.hr.leave.approved')->name('hr.show.leave.approved');
     Route::view('/leave/disapproved', 'pages.hr.leave.disapproved')->name('hr.show.leave.disapproved');
@@ -92,6 +95,9 @@ Route::prefix('/hr')->group(function() {
 
     Route::view('/trip/pending', 'pages.hr.trip.pending')->name('hr.show.trip.pending');
     Route::view('/trip/acknowledged', 'pages.hr.trip.acknowledge')->name('hr.show.trip.acknowledged');
+
+    Route::view('/notice/pending', 'pages.hr.notice.pending')->name('hr.show.notice.pending');
+    Route::view('/notice/acknowledged', 'pages.hr.notice.acknowledged')->name('hr.show.notice.acknowledged');
 });
 
 Route::get('/branchLoad', 'BranchController@loadBranch')->name('load.branch');
@@ -129,6 +135,12 @@ Route::post('/tripStore', 'TripController@storeTrip')->name('store.trip');
 Route::get('/tripEdit/{id}', 'TripController@editTrip')->name('edit.trip');
 Route::post('/tripUpdate/{id}', 'TripController@updateTrip')->name('update.trip');
 Route::post('/tripDelete/{id}', 'TripController@deleteTrip')->name('delete.trip');
+
+Route::get('/noticeLoad', 'NoticeController@loadNotice')->name('load.notice');
+Route::post('/noticeStore', 'NoticeController@storeNotice')->name('store.notice');
+Route::get('/noticeEdit/{id}', 'NoticeController@editNotice')->name('edit.notice');
+Route::post('/noticeUpdate/{id}', 'NoticeController@updateNotice')->name('update.notice');
+Route::post('/noticeDelete/{id}', 'NoticeController@deleteNotice')->name('delete.notice');
 
 Route::get('/employeeLoad', 'EmployeeController@loadEmployee')->name('load.employee');
 Route::get('/employeeShow/{id}', 'EmployeeController@showEmployee')->name('show.employee');
@@ -203,6 +215,10 @@ Route::post('/hr/otRequest/disapproved/{id}', 'HRController@overtimeRequestDisap
 Route::get('/hr/tripRequests/{status}/{role}', 'HRController@loadTripRequests')->name('hr.trip.requests.load');
 Route::get('/hr/tripRequests/view/{id}', 'HRController@viewTripRequests')->name('hr.trip.requests.view');
 Route::post('/hr/tripRequests/acknowledged/{id}', 'HRController@TripRequestsAcknowledged')->name('hr.trip.requests.acknowledged');
+
+Route::get('/hr/noticeRequests/{status}/{role}', 'HRController@loadNoticeSlipRequests')->name('hr.notice.requests.load');
+Route::get('/hr/noticeRequest/view/{id}', 'HRController@viewNoticeSlipRequest')->name('hr.notice.requests.view');
+Route::post('/hr/noticeRequest/acknowledged/{id}', 'HRController@NoticeSlipAcknowledged')->name('hr.notice.acknowledged');
 
 Route::get('/accessLoad', 'AccessController@loadAccessControl')->name('load.access');
 Route::post('/accessAssign/{id}', 'AccessController@assignAccess')->name('assign.access');
