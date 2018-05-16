@@ -256,6 +256,30 @@
                 </a>
             </li>
         @endif
+        @if(Auth::user()->hasRole('accounting'))
+            <li class="sub-menu">
+                <a class="{{ Route::currentRouteNamed('accnt.sup.ot.pending') ? 'active' : '' }}{{ Route::currentRouteNamed('accnt.sup.ot.approved') ? 'active' : '' }}{{ Route::currentRouteNamed('accnt.sup.ot.disapproved') ? 'active' : '' }}" href="#">
+                    <i class="fa fa-user"></i>
+                    <span>Supervisor Overtime</span>
+                </a>
+                <ul class="sub">
+                    <li class="{{ Route::currentRouteNamed('accnt.sup.ot.pending') ? 'active' : '' }}"><a href="{{ route('accnt.sup.ot.pending') }}">Pending</a></li>
+                    <li class="{{ Route::currentRouteNamed('accnt.sup.ot.approved') ? 'active' : '' }}"><a href="{{ route('accnt.sup.ot.approved') }}">Approved</a></li>
+                    <li class="{{ Route::currentRouteNamed('accnt.sup.ot.disapproved') ? 'active' : '' }}"><a href="{{ route('accnt.sup.ot.disapproved') }}">Disapproved</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a class="{{ Route::currentRouteNamed('accnt.emp.ot.pending') ? 'active' : '' }}{{ Route::currentRouteNamed('accnt.emp.ot.approved') ? 'active' : '' }}{{ Route::currentRouteNamed('accnt.emp.ot.disapproved') ? 'active' : '' }}" href="#">
+                    <i class="fa fa-user"></i>
+                    <span>Employee Overtime</span>
+                </a>
+                <ul class="sub">
+                    <li class="{{ Route::currentRouteNamed('accnt.emp.ot.pending') ? 'active' : '' }}"><a href="{{ route('accnt.emp.ot.pending') }}">Pending</a></li>
+                    <li class="{{ Route::currentRouteNamed('accnt.emp.ot.approved') ? 'active' : '' }}"><a href="{{ route('accnt.emp.ot.approved') }}">Approved</a></li>
+                    <li class="{{ Route::currentRouteNamed('accnt.emp.ot.disapproved') ? 'active' : '' }}"><a href="{{ route('accnt.emp.ot.disapproved') }}">Disapproved</a></li>
+                </ul>
+            </li>
+        @endif
         @if(Auth::user()->hasRole('user'))
             <li class="sub-menu">
                 <a class="{{ Route::currentRouteNamed('show.my.profile') ? 'active' : '' }}" href="{{ route('show.my.profile') }}">

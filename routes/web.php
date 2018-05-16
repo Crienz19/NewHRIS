@@ -100,6 +100,16 @@ Route::prefix('/hr')->group(function() {
     Route::view('/notice/acknowledged', 'pages.hr.notice.acknowledged')->name('hr.show.notice.acknowledged');
 });
 
+Route::prefix('/accnt')->group(function() {
+    Route::view('/emp/pending', 'pages.accounting.employee.pending')->name('accnt.emp.ot.pending');
+    Route::view('/emp/approved', 'pages.accounting.employee.approved')->name('accnt.emp.ot.approved');
+    Route::view('/emp/disapproved', 'pages.accounting.employee.disapproved')->name('accnt.emp.ot.disapproved');
+
+    Route::view('/sup/pending', 'pages.accounting.supervisor.pending')->name('accnt.sup.ot.pending');
+    Route::view('/sup/approved', 'pages.accounting.supervisor.approved')->name('accnt.sup.ot.approved');
+    Route::view('/sup/disapproved', 'pages.accounting.supervisor.disapproved')->name('accnt.sup.ot.disapproved');
+});
+
 Route::get('/branchLoad', 'BranchController@loadBranch')->name('load.branch');
 Route::post('/branchStore', 'BranchController@storeBranch')->name('store.branch');
 Route::get('/branchEdit/{id}', 'BranchController@editBranch')->name('edit.branch');
