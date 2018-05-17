@@ -21,7 +21,6 @@
                         <th>Reason</th>
                         <th>Status</th>
                         <th>Created At</th>
-                        <th>Action</th>
                         </thead>
                     </table>
                 </div>
@@ -37,7 +36,7 @@
                 'processing': true,
                 'serverSide': true,
                 'ajax': '/hr/otRequests/Pending/user',
-                'dom': 'tp',
+                'dom': '<"pull-right m-b-5"B><"#filter.pull-left"><t><p>',
                 'columns': [
                     { data: 'id', name: 'id' },
                     { data: 'employee', name: 'employee' },
@@ -49,8 +48,7 @@
                     { data: 'to', name: 'to' },
                     { data: 'reason', name: 'reason' },
                     { data: 'status', name: 'status' },
-                    { data: 'created_at', name: 'created_at' },
-                    { data: 'action', name: 'action' }
+                    { data: 'created_at', name: 'created_at' }
                 ]
             })
         });

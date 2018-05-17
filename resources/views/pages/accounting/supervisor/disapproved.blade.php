@@ -21,7 +21,6 @@
                         <th>Reason</th>
                         <th>Status</th>
                         <th>Created At</th>
-                        <th>Action</th>
                         </thead>
                     </table>
                 </div>
@@ -50,7 +49,6 @@
                     { data: 'reason', name: 'reason' },
                     { data: 'status', name: 'status' },
                     { data: 'created_at', name: 'created_at' },
-                    { data: 'action', name: 'action' }
                 ]
             })
         });
