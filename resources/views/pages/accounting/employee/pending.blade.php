@@ -36,7 +36,7 @@
                 'processing': true,
                 'serverSide': true,
                 'ajax': '/hr/otRequests/Pending/user',
-                'dom': '<"pull-right m-b-5"B><"#filter.pull-left"><t><p>',
+                'dom': '<"pull-right m-b-5"><"#filter.pull-left"><t><p>',
                 'columns': [
                     { data: 'id', name: 'id' },
                     { data: 'employee', name: 'employee' },
