@@ -217,7 +217,7 @@ class HRController extends Controller
 
         Log::create([
             'user_id'   =>  Auth::user()->id,
-            'activity'  =>  Employee::where('user_id', $trip->user_id)->first()->full_name. ' OB Request Acknowledged'
+            'activity'  =>  Employee::where('user_id', $trip->user_id)->first()->full_name. ' OB Request: '. $trip->purpose .' Acknowledged'
         ]);
 
         return response()->json(['message'  => 'Success']);
