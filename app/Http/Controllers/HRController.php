@@ -151,7 +151,7 @@ class HRController extends Controller
 
         Log::create([
             'user_id'   =>  Auth::user()->id,
-            'activity'  =>  Employee::where('user_id', $overtime->user_id)->first()->full_name. ' Overtime Request Approved'
+            'activity'  =>  Employee::where('user_id', $overtime->user_id)->first()->full_name. ' Overtime Request #'. $overtime->id .' Approved'
         ]);
 
         return response()->json(['message'  =>  'Overtime Approved']);
@@ -163,14 +163,14 @@ class HRController extends Controller
 
         $overtime->update([
             'status'    =>  'Disapproved',
-            'remarks'   =>  ($request->input('remarks') == '') ? 'Overtime Approved!' : $request->input('remarks')
+            'remarks'   =>  ($request->input('remarks') == '') ? 'Overtime Disapproved!' : $request->input('remarks')
         ]);
 
         Mail::to(User::find($overtime->user_id)->email)->send(new DisapproveOvertimeNotification());
 
         Log::create([
             'user_id'   =>  Auth::user()->id,
-            'activity'  =>  Employee::where('user_id', $overtime->user_id)->first()->full_name. ' Overtime Request Disapproved'
+            'activity'  =>  Employee::where('user_id', $overtime->user_id)->first()->full_name. ' Overtime Request #'. $overtime->id .' Disapproved'
         ]);
 
         return response()->json(['message'  =>  'Overtime Disapproved']);
