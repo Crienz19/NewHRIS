@@ -152,7 +152,7 @@ class SupervisorController extends Controller
 
         Log::create([
             'user_id'   =>  Auth::user()->id,
-            'activity'  =>  Employee::where('user_id', $overtime->user_id)->first()->full_name . ' Overtime Approved'
+            'activity'  =>  Employee::where('user_id', $overtime->user_id)->first()->full_name . ' Overtime #'. $overtime->id .' Approved'
         ]);
 
         return response()->json(['message' => 'OT Approved']);
@@ -175,7 +175,7 @@ class SupervisorController extends Controller
 
         Log::create([
             'user_id'   =>  Auth::user()->id,
-            'activity'  =>  Employee::where('user_id', $overtime->user_id)->first()->full_name . ' Overtime Disapproved'
+            'activity'  =>  Employee::where('user_id', $overtime->user_id)->first()->full_name . ' Overtime #'. $overtime->id .' Disapproved'
         ]);
 
         return response()->json(['message' => 'OT Disapproved']);
