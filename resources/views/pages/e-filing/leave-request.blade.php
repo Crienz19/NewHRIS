@@ -46,6 +46,7 @@
                                     <select name="leave-type" class="form-control col-md-6">
                                         <option value="" selected>Select Leave</option>
                                         <option value="SL">Sick Leave</option>
+                                        <option value="SL-Half">Sick Leave - Half Day</option>
                                         <option value="VL">Vacation Leave</option>
                                         <option value="VL-Half">Vacation Leave - Half Day</option>
                                         <option value="PTO">PTO</option>
@@ -252,7 +253,7 @@
             });
 
             $('select[name=leave-type]').click(function() {
-                if($(this).val() === 'VL-Half' || $(this).val() === 'PTO-Half') {
+                if($(this).val() === 'VL-Half' || $(this).val() === 'PTO-Half' || $(this).val() === 'SL-Half') {
                     $('#time').show();
                 } else {
                     $('#time').hide();
