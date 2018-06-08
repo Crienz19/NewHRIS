@@ -218,7 +218,7 @@
                                 $('input[name=time-from]').val(response['time_from']);
                                 $('input[name=time-to]').val(response['time_to']);
 
-                                if(response['type'] === 'VL-Half' || response['type'] === 'PTO-Half') {
+                                if(response['type'] === 'VL-Half' || response['type'] === 'PTO-Half' || response['type'] === 'SL-Half') {
                                     $('#time').show();
                                 } else {
                                     $('#time').hide();
