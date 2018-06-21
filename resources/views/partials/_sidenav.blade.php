@@ -210,7 +210,7 @@
                 </a>
             </li>
             <li class="sub-menu">
-                <a class="{{ Route::currentRouteNamed('show.my.leave') ? 'active' : '' }}{{ Route::currentRouteNamed('show.my.overtime') ? 'active' : '' }}{{ Route::currentRouteNamed('show.my.trip') ? 'active' : '' }}" href="#">
+                <a class="{{ Route::currentRouteNamed('show.my.notice') ? 'active' : '' }}{{ Route::currentRouteNamed('show.my.leave') ? 'active' : '' }}{{ Route::currentRouteNamed('show.my.overtime') ? 'active' : '' }}{{ Route::currentRouteNamed('show.my.trip') ? 'active' : '' }}" href="#">
                     <i class="fa fa-clock-o"></i>
                     <span>Filing</span>
                 </a>
@@ -218,6 +218,7 @@
                     <li class="{{ Route::currentRouteNamed('show.my.leave') ? 'active' : '' }}"><a href="{{ route('show.my.leave') }}">Leave Request</a></li>
                     <li class="{{ Route::currentRouteNamed('show.my.overtime') ? 'active' : '' }}"><a href="{{ route('show.my.overtime') }}">Overtime Request</a></li>
                     <li class="{{ Route::currentRouteNamed('show.my.trip') ? 'active' : '' }}"><a href="{{ route('show.my.trip') }}">Official Business Trip</a></li>
+                    <li class="{{ Route::currentRouteNamed('show.my.notice') ? 'active' : '' }}"><a href="{{ route('show.my.notice') }}">Notice Slip</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
