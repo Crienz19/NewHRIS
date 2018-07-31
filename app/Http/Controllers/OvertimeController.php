@@ -76,7 +76,7 @@ class OvertimeController extends Controller
         $credit = Credit::where('user_id', Auth::user()->id)->first();
 
         Credit::where('user_id', Auth::user()->id)->update([
-            'OT'    =>  $credit->OT + 1
+            'OT'    =>  Overtime::find(Auth::user()->id)->count()
         ]);
 
         Log::create([

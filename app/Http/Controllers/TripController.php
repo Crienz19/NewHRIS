@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Credit;
 use App\Employee;
 use App\Log;
 use App\Mail\FileTripNotification;
@@ -48,13 +49,17 @@ class TripController extends Controller
             'time_in'           => date('h:i A', strtotime($request->input('time-in'))),
             'time_out'          => date('h:i A', strtotime($request->input('time-out'))),
             'destination_from'  => $request->input('dest-from'),
-            'destination_to'   => $request->input('dest-to'),
+            'destination_to'    => $request->input('dest-to'),
             'purpose'           => $request->input('purpose'),
             'status'            => 'Pending',
             'remarks'           => ''
         ];
 
         Trip::create($data);
+
+        Credit::where('user_id', Auth::user()->id)->update([
+            'OB'    =>  Trip::find(Auth::user()->id)->count()
+        ]);
 
         Log::create([
             'user_id'   =>  $data['user_id'],
