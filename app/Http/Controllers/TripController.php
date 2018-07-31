@@ -58,7 +58,7 @@ class TripController extends Controller
         Trip::create($data);
 
         Credit::where('user_id', Auth::user()->id)->update([
-            'OB'    =>  Trip::find(Auth::user()->id)->count()
+            'OB'    =>  Trip::where('user_id', Auth::user()->id)->count()
         ]);
 
         Log::create([
