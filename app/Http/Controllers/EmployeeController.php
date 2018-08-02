@@ -26,8 +26,8 @@ class EmployeeController extends Controller
             ->addColumn('action', function($employee) {
                 if (Auth()->user()->hasRole('superadmin') == true) {
                     return '<button class="btn btn-default btn-xs" data="view" data-id="'.$employee->id.'"><span class="glyphicon glyphicon-eye-open"></span></button>
-                        <button class="btn btn-primary btn-xs" data="assign" data-id="'.$employee->id.'"><span class="glyphicon glyphicon-check"></span></button>
-                        <button class="btn btn-warning btn-xs" data="reset" data-id="'.$employee->id.'"><span class="glyphicon glyphicon-refresh"></span></button>';
+                            <button class="btn btn-primary btn-xs" data="assign" data-id="'.$employee->id.'"><span class="glyphicon glyphicon-check"></span></button>
+                            <button class="btn btn-warning btn-xs" data="reset" data-id="'.$employee->id.'"><span class="glyphicon glyphicon-refresh"></span></button>';
                 } else {
                     return '<button class="btn btn-default btn-xs" data="view" data-id="'.$employee->id.'"><span class="glyphicon glyphicon-eye-open"></span></button>';
                 }
