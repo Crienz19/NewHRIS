@@ -251,5 +251,5 @@ Route::get('/helper/emp/ot/{status}', 'HelperController@EmployeeOT')->name('help
 Route::get('/filter/otRequest/{role}/{start}/{end}/{status}/{branch}', 'FilterController@filterOTRequests')->name('filter.ot.requests');
 
 Route::get('/test', function() {
-    return \Illuminate\Support\Facades\Hash::make('z1ptr4v3l');
+
 });
