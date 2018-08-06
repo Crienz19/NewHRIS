@@ -40,12 +40,12 @@ class AnnualCreditReset extends Command
      */
     public function handle()
     {
-        $now = Carbon::now()->format('Y-m-d');
+        $now = Carbon::now();
         $employees = Employee::all();
 
         foreach ($employees as $employee) {
-            if ($now == $employee->date_hired) {
-                $d1 = new DateTime($now);
+            if ($now->format('m-d') == Carbon::createFromFormat('Y-m-d', $employee->date_hired)->format('m-d')) {
+                $d1 = new DateTime($now->format('Y-m-d'));
                 $d2 = new DateTime($employee->date_hired);
                 $diff = $d2->diff($d1);
 

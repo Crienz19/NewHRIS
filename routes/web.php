@@ -251,5 +251,40 @@ Route::get('/helper/emp/ot/{status}', 'HelperController@EmployeeOT')->name('help
 Route::get('/filter/otRequest/{role}/{start}/{end}/{status}/{branch}', 'FilterController@filterOTRequests')->name('filter.ot.requests');
 
 Route::get('/test', function() {
+    $now = \Carbon\Carbon::now();
+    $employees = \App\Employee::all();
 
+    foreach ($employees as $employee) {
+        if ($now->format('m-d') == \Carbon\Carbon::createFromFormat('Y-m-d', $employee->date_hired)->format('m-d')) {
+            $d1 = new DateTime($now->format('Y-m-d'));
+            $d2 = new DateTime($employee->date_hired);
+            $diff = $d2->diff($d1);
+
+            if ($diff->y > 1) {
+                $credits = \App\Credit::where('user_id', $employee->user_id);
+
+                $credits->update([
+                    'VL'            =>  $credits->first()->total_VL + 1,
+                    'SL'            =>  $credits->first()->total_SL + 1,
+                    'PTO'           =>  $credits->first()->VL + $credits->first()->SL,
+                    'total_VL'      =>  $credits->first()->total_VL + 1,
+                    'total_SL'      =>  $credits->first()->total_SL + 1,
+                    'total_PTO'     =>  $credits->first()->VL + $credits->first()->SL
+                ]);
+            } else {
+                $credits = \App\Credit::where('user_id', $employee->user_id);
+
+                $credits->update([
+                    'VL'            =>  6,
+                    'SL'            =>  6,
+                    'PTO'           =>  0,
+                    'total_VL'      =>  6,
+                    'total_SL'      =>  6,
+                    'total_PTO'     =>  0
+                ]);
+            }
+        } else {
+            echo 'False: ' . $employee->user_id . '<br>';
+        }
+    }
 });
