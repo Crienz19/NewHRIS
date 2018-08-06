@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use App\Credit;
 use App\Employee;
 use Carbon\Carbon;
-use Faker\Provider\DateTime;
 use Illuminate\Console\Command;
 
 class AnnualCreditReset extends Command
