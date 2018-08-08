@@ -229,36 +229,38 @@
                         window.location.href = '{{ url("/welcome") }}';
                     },
                     error: function(response) {
-                        var error = response.responseJSON.errors;
+                        if (response.responseJSON) {
+                            var error = response.responseJSON.errors;
+                            $('#error-user').html(error['name']);
+                            $('#error-email').html(error['email']);
+                            $('#skype-error').html(error['skype']);
+                            $('#error-password').html(error['password']);
+                            $('#error-cpassword').html(error['password']);
+                            $('#first-name-error').html(error['first-name']);
+                            $('#middle-name-error').html(error['middle-name']);
+                            $('#last-name-error').html(error['last-name']);
+                            $('#birthdate-error').html(error['birthdate']);
+                            $('#status-error').html(error['status']);
+                            $('#pre-address-error').html(error['pre-address']);
+                            $('#perm-address-error').html(error['perm-address']);
+                            $('#contact-1-error').html(error['contact-1']);
+                            $('#contact-2-error').html(error['contact-2']);
+                            $('#tin-error').html(error['tin']);
+                            $('#sss-error').html(error['sss']);
+                            $('#hdmf-error').html(error['hdmf']);
+                            $('#phic-error').html(error['phic']);
+                            $('#employee-id-error').html(error['employee-id']);
+                            $('#branch-error').html(error['branch']);
+                            $('#date-hired-error').html(error['date-hired']);
+                            $('#department-error').html(error['department']);
+                            $('#position-error').html(error['position']);
 
-                        $('#error-user').html(error['name']);
-                        $('#error-email').html(error['email']);
-                        $('#skype-error').html(error['skype']);
-                        $('#error-password').html(error['password']);
-                        $('#error-cpassword').html(error['password']);
-                        $('#first-name-error').html(error['first-name']);
-                        $('#middle-name-error').html(error['middle-name']);
-                        $('#last-name-error').html(error['last-name']);
-                        $('#birthdate-error').html(error['birthdate']);
-                        $('#status-error').html(error['status']);
-                        $('#pre-address-error').html(error['pre-address']);
-                        $('#perm-address-error').html(error['perm-address']);
-                        $('#contact-1-error').html(error['contact-1']);
-                        $('#contact-2-error').html(error['contact-2']);
-                        $('#tin-error').html(error['tin']);
-                        $('#sss-error').html(error['sss']);
-                        $('#hdmf-error').html(error['hdmf']);
-                        $('#phic-error').html(error['phic']);
-                        $('#employee-id-error').html(error['employee-id']);
-                        $('#branch-error').html(error['branch']);
-                        $('#date-hired-error').html(error['date-hired']);
-                        $('#department-error').html(error['department']);
-                        $('#position-error').html(error['position']);
-
-                        $('#btn-action').prop('disabled', false);
-                        $('#load').hide();
-                        $('#lock').show();
-
+                            $('#btn-action').prop('disabled', false);
+                            $('#load').hide();
+                            $('#lock').show();
+                        } else {
+                            window.location.href = '{{ url("/welcome") }}';
+                        }
                     }
                 });
             });
