@@ -30,7 +30,13 @@ class AccessController extends Controller
         //} else {
 
         //}
-        $user->attachRole($request->input('role'));
+        if ($user->hasRole()) {
+            $user->detachRole($user->roles()->first()->name);
+            $user->attachRole($request->input('role'));
+        } else {
+            $user->attachRole($request->input('role'));
+        }
+
         return response()->json(['message'  =>  'Role Assigned!']);
     }
 }
