@@ -121,6 +121,7 @@
                     { data: 'time_from', name: 'time_from'},
                     { data: 'time_to', name: 'time_to'},
                     { data: 'final_approval', name: 'final_approval'},
+                    { data: 'created_at', name: 'created_at' },
                     { data: 'action', name: 'action'}
                 ]
             });

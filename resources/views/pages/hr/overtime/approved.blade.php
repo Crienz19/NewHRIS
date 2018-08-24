@@ -19,6 +19,7 @@
                             <th>To</th>
                             <th>Reason</th>
                             <th>Status</th>
+                            <th>Created At</th>
                             <th>Action</th>
                         </thead>
                     </table>
@@ -102,6 +103,7 @@
                     { data: 'to', name: 'to' },
                     { data: 'reason', name: 'reason' },
                     { data: 'status', name: 'status' },
+                    { data: 'created_at', name: 'created_at' },
                     { data: 'action', name: 'action' }
                 ]
             });
