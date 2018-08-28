@@ -22,6 +22,7 @@
                             <th>Time From</th>
                             <th>Time To</th>
                             <th>Status</th>
+                            <th>Created At</th>
                             <th>Action</th>
                         </thead>
                     </table>
