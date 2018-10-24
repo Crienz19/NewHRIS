@@ -248,7 +248,7 @@ Route::get('/helper/sup/leave/{status}', 'HelperController@SupervisorLeave')->na
 Route::get('/helper/emp/leave/{status}', 'HelperController@EmployeeLeave')->name('helper.employee.leave');
 Route::get('/helper/emp/ot/{status}', 'HelperController@EmployeeOT')->name('helper.employee.ot');
 
-Route::get('/filter/otRequest/{role}/{start}/{end}/{status}/{branch}', 'FilterController@filterOTRequests')->name('filter.ot.requests');
+Route::get('/filter/otRequest/{role}/{start}/{end}/{status}', 'FilterController@filterOTRequests')->name('filter.ot.requests');
 
 Route::get('/test', function() {
     $now = \Carbon\Carbon::now();

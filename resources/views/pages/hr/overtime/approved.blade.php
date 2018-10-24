@@ -119,11 +119,6 @@
                 '                            <input type="date" class="form-control input-sm" id="to-filter" name="to-filter">\n' +
                 '                        </div>\n' +
                 '                        <div class="form-group">\n' +
-                '                            <label for="branch">Branch: </label>\n' +
-                '                            <select class="form-control input-sm" id="branch" name="branch">' +
-                '                            </select>\n' +
-                '                        </div>\n' +
-                '                        <div class="form-group">\n' +
                 '                            <button class="btn btn-primary btn-sm col-xs-12" id="btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>\n' +
                 '                        </div>\n' +
                 '                    </div>' +
@@ -154,8 +149,7 @@
                 var start = $('input[name=from-filter]').val();
                 var end = $('input[name=to-filter]').val();
                 var status = 'Approved';
-                var branch = $('select[name=branch]').val();
-                dt.api().ajax.url('{{ url("/filter/otRequest") }}/user/' + start + '/' + end + '/' + status + '/' + branch + '').load();
+                dt.api().ajax.url('{{ url("/filter/otRequest") }}/user/' + start + '/' + end + '/' + status + '').load();
             });
 
             $('#hr-ot-approved-table tbody').on('click', 'td button', function (){
