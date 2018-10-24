@@ -220,14 +220,13 @@
                         $('#ot-modal').modal('hide');
                     },
                     error: function(response) {
+                        $('#btn-action').prop('disabled', false);
                         var error = response.responseJSON.errors;
 
                         $('#error-date').html(error['ot-date']).show();
                         $('#error-from').html(error['ot-from']).show();
                         $('#error-to').html(error['ot-to']).show();
                         $('#error-reason').html(error['ot-reason']).show();
-
-                        $('#btn-action').prop('disabled', false);
                     }
                 });
             });

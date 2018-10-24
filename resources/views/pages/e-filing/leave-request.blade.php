@@ -284,6 +284,8 @@
                         $('#btn-action').prop('disabled', false);
                     },
                     error: function(response) {
+                        $('#btn-action').prop('disabled', false);
+
                         var error = response.responseJSON.errors;
 
                         $('#error-leave-type').html(error['leave-type']);
@@ -291,8 +293,6 @@
                         $('#error-reason').html(error['leave-reason']);
                         $('#error-from').html(error['leave-from']);
                         $('#error-to').html(error['leave-to']);
-
-                        $('#btn-action').prop('disabled', false);
                     }
                 });
             });

@@ -209,6 +209,7 @@
                         $('#btn-action').prop('disabled', false);
                     },
                     error: function(response) {
+                        $('#btn-action').prop('disabled', false);
                         var error = response.responseJSON.errors;
 
                         $('#date-from-error').html(error['date-from']);
@@ -218,8 +219,6 @@
                         $('#dest-from-error').html(error['dest-from']);
                         $('#dest-to-error').html(error['dest-to']);
                         $('#purpose-error').html(error['purpose']);
-
-                        $('#btn-action').prop('disabled', false);
                     }
                 });
             });
